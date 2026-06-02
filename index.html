@@ -63,6 +63,12 @@ body {
 .hero-meta {
   position: absolute;
   top: 18px; right: 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 2;
+}
+.hero-meta > span {
   background: rgba(255,255,255,.12);
   border: 1px solid rgba(255,255,255,.2);
   border-radius: 100px;
@@ -71,7 +77,11 @@ body {
   color: rgba(255,255,255,.85);
   font-weight: 500;
   letter-spacing: .5px;
-  z-index: 2;
+}
+.meta-views { background: rgba(255,215,0,.18) !important; border-color: rgba(255,215,0,.4) !important; color: #FFD700 !important; }
+.meta-views #viewCount { font-weight: 800; }
+@media (max-width: 720px) {
+  .hero-meta { position: relative; top: 0; right: 0; margin-bottom: 12px; flex-wrap: wrap; }
 }
 .hero p { margin: 0; font-size: 15px; opacity: .9; max-width: 680px; }
 .ball {
@@ -774,7 +784,6 @@ code.copyable.copied::after { display: none; }
   color: #fff;
   font-weight: 700;
 }
-.tk-tips { background: #faf8f5; }
 .tk-tips h4 { color: #1a1a1a; }
 .tips-list { list-style: none; padding: 0; margin: 0; }
 .tips-list li {
@@ -791,27 +800,173 @@ code.copyable.copied::after { display: none; }
 .tips-list li b::before { content: "💡 "; }
 .tips-list li span { color: #888; font-size: 12px; line-height: 1.5; }
 
-/* 封面四要素 - 列表式 */
-.cover-list { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
-.cover-step {
+/* 5 步流程导航 */
+.step-nav {
   display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 10px 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   background: #faf8f5;
-  border-radius: 10px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin: 8px 0 18px 44px;
+  flex-wrap: wrap;
 }
-.cs-no {
+.step-item {
+  display: flex; align-items: center; gap: 6px;
+  background: #fff;
+  border: 1px solid #ececec;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #444;
+}
+.step-item span {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 18px; height: 18px;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 800;
+}
+.step-arrow { color: #ccc; font-weight: 700; }
+
+/* 5 步流程块 */
+.step-block {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin-bottom: 14px;
+}
+.step-h {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.step-num {
   flex-shrink: 0;
-  width: 28px; height: 28px;
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #ff2442, #ff6b35);
+  color: #fff;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-weight: 800;
-  font-size: 13px;
+  font-size: 16px;
+  box-shadow: 0 4px 12px -4px rgba(255,36,66,.4);
 }
-.cs-body { flex: 1; font-size: 12.5px; color: #555; line-height: 1.5; }
-.cs-body b { display: inline; color: #1a1a1a; font-size: 13px; font-weight: 700; }
-.cs-body span { display: block; color: #888; font-size: 11.5px; margin-top: 3px; line-height: 1.5; }
+.step-h h3 { margin: 0 0 4px; font-size: 17px; font-weight: 800; color: #1a1a1a; }
+.step-h p { margin: 0; font-size: 12.5px; color: #666; line-height: 1.6; }
+.step-h p b { color: #1a1a1a; }
+
+/* Step 2 标题列表 */
+.title-list { display: flex; flex-direction: column; gap: 4px; }
+.title-list code {
+  display: block;
+  background: #faf8f5;
+  border-left: 3px solid #ff2442;
+  padding: 9px 12px;
+  font-family: -apple-system, "PingFang SC", monospace;
+  font-size: 13px;
+  border-radius: 0 6px 6px 0;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Step 3 双栏内容 */
+.content-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.content-col {
+  background: #faf8f5;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.cc-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff2442;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ff2442;
+}
+
+/* Step 4 标签堆叠 */
+.tag-stack { display: flex; flex-direction: column; gap: 12px; }
+
+@media (max-width: 720px) {
+  .step-nav { margin-left: 0; }
+  .content-cols { grid-template-columns: 1fr; }
+  .step-block .tips-list[style] { grid-template-columns: 1fr !important; }
+  .step-block .tips-list[style] li[style] { grid-column: auto !important; }
+}
+
+/* CVR / 自然流提升 - tips 列表 */
+.trick-list { list-style: none; padding: 0; margin: 0; }
+.trick-list li {
+  padding: 11px 0;
+  border-bottom: 1px dashed #e8e0d4;
+  font-size: 12.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #444;
+}
+.trick-list li:last-child { border-bottom: none; }
+.trick-list li b {
+  color: #1a1a1a;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.trick-list li span {
+  color: #777;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 2px;
+}
+
+/* 行动矩阵表 */
+.action-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-top: 4px;
+}
+.action-matrix th {
+  background: rgba(255,215,0,.15);
+  color: #FFD700;
+  text-align: left;
+  padding: 9px 10px;
+  font-weight: 700;
+  font-size: 11.5px;
+  border-bottom: 1px solid rgba(255,215,0,.3);
+}
+.action-matrix td {
+  padding: 9px 10px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  color: #ddd;
+  vertical-align: top;
+  line-height: 1.55;
+}
+.action-matrix tr:last-child td { border-bottom: none; }
+.action-matrix td:first-child {
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.action-matrix td:last-child {
+  color: #FFD700;
+  font-weight: 600;
+  white-space: nowrap;
+}
 
 /* ============ TAB 3: 执行落地 ============ */
 .timeline-section {
@@ -1129,6 +1284,143 @@ code.copyable.copied::after { display: none; }
   vertical-align: middle;
 }
 
+/* Tab 4 · 避免踩坑专区 */
+.tab-btn.tab-warn:not(.active) { color: #ff2442; }
+.tab-btn.tab-warn:not(.active):hover { background: #fff0ec; }
+
+.warn-hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #3a1a1a 100%);
+  border-radius: 18px;
+  padding: 26px 30px;
+  margin: 8px 0 18px;
+  position: relative;
+  overflow: hidden;
+}
+.warn-hero::before {
+  content: "⚠️";
+  position: absolute;
+  font-size: 200px;
+  right: -30px; top: -50px;
+  opacity: .04;
+}
+.warn-hero > * { position: relative; }
+.wh-tag {
+  display: inline-block;
+  background: #FFD700;
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.trap-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin-bottom: 14px;
+}
+.trap-card.trap-red { border-top: 4px solid #ff2442; }
+.trap-card.trap-yellow { border-top: 4px solid #d97706; }
+.trap-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.trap-no {
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.trap-pri {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.pri-red { background: #fff0ec; color: #ff2442; }
+.pri-yellow { background: #fff8e6; color: #d97706; }
+.trap-card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+.trap-body p { margin: 0; font-size: 13px; color: #444; line-height: 1.65; }
+.trap-body p b { color: #1a1a1a; }
+.trap-cmp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+.cmp-bad, .cmp-good {
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12.5px;
+}
+.cmp-bad {
+  background: #fff5f5;
+  border: 1px solid #ffd6d6;
+}
+.cmp-good {
+  background: #f5fff5;
+  border: 1px solid #cfeacc;
+}
+.cmp-head {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 12.5px;
+}
+.cmp-bad .cmp-head { color: #c00; }
+.cmp-good .cmp-head { color: #00833f; }
+.cmp-bad ul, .cmp-good ul {
+  margin: 0; padding-left: 18px;
+  color: #333;
+  line-height: 1.7;
+  font-size: 12.5px;
+}
+.cmp-bad ul li, .cmp-good ul li { margin-bottom: 2px; }
+.trap-rule {
+  margin-top: 10px !important;
+  background: #faf8f5;
+  border-left: 3px solid #1a1a1a;
+  padding: 8px 12px !important;
+  border-radius: 0 6px 6px 0;
+  font-size: 12.5px !important;
+}
+.trap-rule b { color: #1a1a1a; }
+
+.trap-summary {
+  background: linear-gradient(135deg, #ff2442 0%, #ff6b35 100%);
+  color: #fff;
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-top: 18px;
+  text-align: center;
+}
+.ts-tag {
+  display: inline-block;
+  background: rgba(255,255,255,.25);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+.trap-summary p { margin: 0; font-size: 16px; line-height: 1.7; font-weight: 600; }
+.trap-summary p b { color: #FFD700; font-weight: 800; }
+
+@media (max-width: 720px) {
+  .trap-cmp { grid-template-columns: 1fr; }
+}
+
 /* 页脚备注 - 商家友好版 */
 .page-footer {
   margin: 32px 0 0;
@@ -1197,10 +1489,13 @@ code.copyable.copied::after { display: none; }
 
 <!-- ============ HERO ============ -->
 <div class="hero">
-  <div class="hero-meta">最后更新 · 2026/06/02</div>
+  <div class="hero-meta">
+    <span class="meta-views">👁 <span id="viewCount">—</span> 用户查看</span>
+    <span class="meta-date">最后更新 · 2026/06/02</span>
+  </div>
   <div class="badge"><span class="ball"></span> FIFA WORLD CUP 2026 · 美加墨</div>
   <h1>小红书 · 世界杯借势<br>食品类目内容 & 产品创新指南</h1>
-  <p>2026/06/11 开赛 — 7/19 决赛，整整 39 天的确定性流量窗口。这份指南帮你看清「机会在哪 → 内容怎么做 → 节奏怎么排」，照着 3 步走，把这波流量稳稳接住。</p>
+  <p>06/11 开赛 — 7/19 决赛，39 天确定性流量窗口。<br>看清「机会在哪 → 内容怎么做 → 节奏怎么排 → 哪里别踩坑」，照着 4 步走。</p>
 </div>
 
 <!-- ============ TABS ============ -->
@@ -1208,6 +1503,7 @@ code.copyable.copied::after { display: none; }
   <button class="tab-btn active" data-tab="t1"><span class="tb-num">1</span>机会全景</button>
   <button class="tab-btn" data-tab="t2"><span class="tb-num">2</span>内容玩法</button>
   <button class="tab-btn" data-tab="t3"><span class="tb-num">3</span>执行落地</button>
+  <button class="tab-btn tab-warn" data-tab="t4"><span class="tb-num">4</span>避免踩坑</button>
 </div>
 
 <!-- ===================================================================== -->
@@ -1237,13 +1533,13 @@ code.copyable.copied::after { display: none; }
         <div class="kpi-sub">辨识度最高 · 决赛前再冲一波</div>
       </div>
       <div class="kpi">
-        <div class="kpi-label">大盘流量池</div>
-        <div class="kpi-value">百万级 QV</div>
+        <div class="kpi-label">大盘搜索体量</div>
+        <div class="kpi-value">百万级</div>
         <div class="kpi-sub">蹭大词比做垂直词更划算</div>
       </div>
     </div>
 
-    <!-- 趋势图（脱敏：不显具体数字） -->
+    <!-- 趋势图 -->
     <div class="trend-block">
       <div class="trend-title">📈 「世界杯」搜索日趋势 · 2026/03 — 05</div>
       <div class="trend-chart">
@@ -1287,7 +1583,7 @@ code.copyable.copied::after { display: none; }
         <div class="insight-card">
           <div class="ins-icon" style="background:#fff0ec;color:#ff2442">🎯</div>
           <h4>蹭大词，别死磕垂直词</h4>
-          <p>「世界杯」三字流量池百万级，垂直词（观赛美食/球迷套餐）几乎为 0。<b>标题用大词起手，正文/标签再叠产品词</b>。</p>
+          <p>「世界杯」三字搜索量百万级，垂直词（观赛美食/球迷套餐）几乎为 0。<b>标题用大词起手，正文/标签再叠产品词</b>。</p>
         </div>
         <div class="insight-card">
           <div class="ins-icon" style="background:#fff7e6;color:#ff8c00">⏰</div>
@@ -1321,7 +1617,7 @@ code.copyable.copied::after { display: none; }
     <!-- 关键认知反转 -->
     <div class="persona-truth" style="margin-top:24px">
       <div class="truth-tag">⚡ 你的内容做给谁看？两拨人同时涌过来</div>
-      <p>很多商家以为蹭世界杯=做给男球迷看，结果流量起不来。这次<b>男性 DAU 大量涌入 + 女性高粘性基本盘</b>同时存在，你面对的是<b>「男性新增 + 女性存量」的双重人群</b>——下面两张卡告诉你怎么分线打。</p>
+      <p>很多商家以为蹭世界杯=做给男球迷看，结果流量起不来。这次<b>男性用户大量涌入 + 女性用户高粘性基本盘</b>同时存在，你面对的是<b>「男性新增 + 女性存量」的双重人群</b>——下面两张卡告诉你怎么分线打。</p>
     </div>
 
     <!-- 双重人群对照 -->
@@ -1340,7 +1636,7 @@ code.copyable.copied::after { display: none; }
       <div class="dual-card female">
         <div class="dual-tag">💎 高粘性存量</div>
         <h4>♀ 23-35 都市年轻女性</h4>
-        <p class="dual-meta">5 群共性 ♀ 65-91% · 平台基本盘</p>
+        <p class="dual-meta">女性占比 65-91% · 平台基本盘</p>
         <ul>
           <li><b>场景</b>：陪伴看球 / 闺蜜趴 / 一人食仪式感</li>
           <li><b>偏好品类</b>：烘焙、茶饮、健康零食、精致拼盘</li>
@@ -1361,7 +1657,7 @@ code.copyable.copied::after { display: none; }
 
 
     <div class="data-warn">
-      ⚠️ 数据综合自 RedBI 搜索商机宽表 + 灵犀人群市场画像 AI 解读，对外页面已脱敏（保留趋势/相对热度，不展示绝对量）。
+      📊 数据来源：小红书平台搜索趋势 + 用户行为洞察。
     </div>
   </div>
 
@@ -1498,7 +1794,7 @@ code.copyable.copied::after { display: none; }
   <div class="flag" style="background:linear-gradient(90deg,#0038A8 33%,#FFFFFF 33% 66%,#CE1126 66%);color:#000;text-shadow:0 1px 2px rgba(255,255,255,.5)">🇫🇷 法国<span>蓝莓酸奶 + 草莓塔</span></div>
   <div class="flag" style="background:linear-gradient(180deg,#75AADB 33%,#FFFFFF 33% 66%,#75AADB 66%);color:#000">🇦🇷 阿根廷<span>蓝白马卡龙 / 焦糖牛奶酱</span></div>
   <div class="flag" style="background:linear-gradient(180deg,#000 33%,#DD0000 33% 66%,#FFCE00 66%)">🇩🇪 德国<span>黑啤 + 香肠 + 椒盐结</span></div>
-  <div class="flag" style="background:linear-gradient(180deg,#008C45 33%,#FFFFFF 33% 66%,#CD212A 66%);color:#000">🇮🇹 意大利<span>三色冰激凌、卡布沙拉</span></div>
+  <div class="flag" style="background:linear-gradient(135deg,#FF6B00 0%,#FF8C00 100%)">🇳🇱 荷兰<span>橙色奶酪、华夫饼、橙汁系</span></div>
   <div class="flag" style="background:#C8102E">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰<span>红白圣乔治司康茶歇</span></div>
   <div class="flag" style="background:linear-gradient(180deg,#AA151B 33%,#F1BF00 33% 66%,#AA151B 66%);color:#000">🇪🇸 西班牙<span>橘子 + 伊比利亚火腿</span></div>
   <div class="flag" style="background:linear-gradient(90deg,#046A38 33%,#FFFFFF 33% 66%,#CE1126 66%);color:#000">🇲🇽 墨西哥<span>牛油果 / 玉米卷</span></div>
@@ -1562,7 +1858,7 @@ code.copyable.copied::after { display: none; }
 
   <div class="play-card">
     <div class="play-no">05</div>
-    <span class="play-tag tag-health">命中高 TGI 人群</span>
+    <span class="play-tag tag-health">命中高潜人群</span>
     <h3>🥗 健康 + 观赛</h3>
     <div class="play-meta">画像同时搜「减脂」+「美食探店」</div>
     <ul>
@@ -1587,18 +1883,34 @@ code.copyable.copied::after { display: none; }
 </div>
 
 <!-- Toolkit -->
-<h2><span class="num">4</span>笔记怎么发？四样东西照着抄</h2>
-<p class="lede">标题模板直接套、封面四要素照着排、话题标签按公式带、小技巧多吃流量——发完一篇笔记需要的全在这里。</p>
+<h2><span class="num">4</span>笔记怎么发？按 5 步走</h2>
+<p class="lede">从选词到发布，每步都给好工具。挨着做下来，一篇高转化笔记就成了。</p>
 
-<!-- 关键词机会榜（迁移自 Tab1） -->
-<div class="trend-block" style="background:#faf8f5;border-radius:14px;padding:18px 22px;margin-bottom:14px">
-  <div style="font-size:14px;font-weight:700;margin-bottom:6px;color:#1a1a1a">🎯 标题里该带哪些词？关键词机会榜</div>
-  <p style="margin:0 0 12px;font-size:12px;color:#888;line-height:1.6">"高优先级"的词用户已经在搜，标题里至少带 1 个；"赛事激活型"的词现在没流量但开赛会爆，提前埋等于占座。</p>
+<!-- 步骤导航 -->
+<div class="step-nav">
+  <div class="step-item"><span>1</span> 选词</div>
+  <span class="step-arrow">→</span>
+  <div class="step-item"><span>2</span> 起标题</div>
+  <span class="step-arrow">→</span>
+  <div class="step-item"><span>3</span> 写正文</div>
+  <span class="step-arrow">→</span>
+  <div class="step-item"><span>4</span> 挂话题</div>
+  <span class="step-arrow">→</span>
+  <div class="step-item"><span>5</span> 发布前自查</div>
+</div>
+
+<!-- Step 1 选词 -->
+<div class="step-block">
+  <div class="step-h">
+    <span class="step-num">1</span>
+    <div>
+      <h3>选词 · 标题里该带哪些词</h3>
+      <p>"高优先级"的词用户已经在搜，标题至少带 1 个；"赛事激活型"现在没流量，开赛后会爆——<b>提前埋等于占座</b>。</p>
+    </div>
+  </div>
   <table class="kw-table">
     <thead>
-      <tr>
-        <th>词类</th><th>关键词</th><th>当前热度</th><th>近 7 天趋势</th><th>商家机会</th>
-      </tr>
+      <tr><th>词类</th><th>关键词</th><th>当前热度</th><th>近 7 天趋势</th><th>商家机会</th></tr>
     </thead>
     <tbody>
       <tr><td><span class="kw-cat cat1">核心</span></td><td><b>世界杯</b></td><td>极高 ★★★★★</td><td class="up">大幅上涨 🔥</td><td><span class="lvl lvl-h">🔴 高优先级</span></td></tr>
@@ -1614,106 +1926,114 @@ code.copyable.copied::after { display: none; }
   </table>
 </div>
 
-<div class="toolkit">
-  <div class="tk-left">
-    <div class="tk-card">
-      <h4>📝 标题模板（点击复制）</h4>
-      <p class="tk-sub">强钩子开头，5-8 字命中情绪</p>
-      <code class="copyable">【世界杯限定】我把 大力神杯 做成了能吃的‼️</code>
-      <code class="copyable">开赛倒计时 N 天｜32 强国旗 品类 打卡 Day X</code>
-      <code class="copyable">赌一包辣条，这道 产品 今晚要爆</code>
-      <code class="copyable">看球必备｜店名 的"绝杀套餐"上线 X 元拿下</code>
-      <code class="copyable">不是吧，连 产品 都能蹭世界杯？姐妹们笑死</code>
-      <code class="copyable">给 爸爸/男友 做了一桌应援餐，他破防了</code>
-    </div>
-
-    <div class="tk-card">
-      <h4>🎨 封面四要素（小红书首图法则）</h4>
-      <p class="tk-sub">把这四样东西摆好，封面就不会丑</p>
-      <div class="cover-list">
-        <div class="cover-step">
-          <div class="cs-no" style="background:#ff2442;color:#fff">1</div>
-          <div class="cs-body">
-            <b>标题压顶</b>（左上 5-8 字大字）
-            <span>"世界杯限定" / "今晚必吃" / "0 元抽" — 用强情绪词钩住人</span>
-          </div>
-        </div>
-        <div class="cover-step">
-          <div class="cs-no" style="background:#00833f;color:#fff">2</div>
-          <div class="cs-body">
-            <b>主体居中</b>（产品占画面 60%）
-            <span>产品旁加一个球元素或国旗色块，世界杯氛围立刻拉满</span>
-          </div>
-        </div>
-        <div class="cover-step">
-          <div class="cs-no" style="background:#fff;color:#1a1a1a;border:1px solid #ddd">3</div>
-          <div class="cs-body">
-            <b>店铺信息</b>（右下小字角标）
-            <span>店名 / 价格 / 赛时——用户一眼看到在哪买、多少钱</span>
-          </div>
-        </div>
-        <div class="cover-step">
-          <div class="cs-no" style="background:#1a1a1a;color:#FFD700">4</div>
-          <div class="cs-body">
-            <b>暖色滤镜</b>（橘红 / 绿茵绿）
-            <span>世界杯氛围色，比冷蓝灰滤镜点击率高，是平台审美</span>
-          </div>
-        </div>
-      </div>
+<!-- Step 2 起标题 -->
+<div class="step-block">
+  <div class="step-h">
+    <span class="step-num">2</span>
+    <div>
+      <h3>起标题 · 6 条模板，hover 复制</h3>
+      <p>强钩子开头，5-8 字命中情绪。点哪条复制哪条，把括号里的词换成你自己的产品。</p>
     </div>
   </div>
+  <div class="title-list">
+    <code class="copyable">【世界杯限定】我把 大力神杯 做成了能吃的‼️</code>
+    <code class="copyable">开赛倒计时 N 天｜32 强国旗 品类 打卡 Day X</code>
+    <code class="copyable">赌一包辣条，这道 产品 今晚要爆</code>
+    <code class="copyable">看球必备｜店名 的"绝杀套餐"上线 X 元拿下</code>
+    <code class="copyable">不是吧，连 产品 都能蹭世界杯？姐妹们笑死</code>
+    <code class="copyable">给 爸爸/男友 做了一桌应援餐，他破防了</code>
+  </div>
+</div>
 
-  <div class="tk-right">
-    <div class="tk-card">
-      <h4>🏷 话题标签矩阵</h4>
-      <p class="tk-sub">公式：<b>1 大热 + 2 中尾 + 1-2 品类</b></p>
-
-      <div class="tag-group">
-        <div class="tag-label">官方话题（强烈建议带 1 个）</div>
-        <div class="tags-cloud">
-          <span class="tg-hot">#球迷备战餐</span>
-          <span class="tg-hot">#无时差观赛地图</span>
-          <span class="tg-hot">#世界杯世界胃</span>
-          <span class="tg-hot">#美食应援</span>
-        </div>
-      </div>
-
-      <div class="tag-group">
-        <div class="tag-label">大热词 / 中尾词</div>
-        <div class="tags-cloud">
-          <span>#世界杯</span>
-          <span>#世界杯联名</span>
-          <span>#球迷必备</span>
-          <span>#熬夜看球</span>
-          <span>#32强打卡</span>
-          <span>#国旗甜品</span>
-        </div>
-      </div>
-
-      <div class="tag-group">
-        <div class="tag-label">品类 / 场景词</div>
-        <div class="tags-cloud">
-          <span>#美食创意</span>
-          <span>#家庭聚餐</span>
-          <span>#办公室下午茶</span>
-          <span>#夜宵</span>
-          <span>#夏日饮品</span>
-        </div>
-      </div>
+<!-- Step 3 写正文 -->
+<div class="step-block">
+  <div class="step-h">
+    <span class="step-num">3</span>
+    <div>
+      <h3>写正文 · 提转化 + 提算法分发</h3>
+      <p>左边 4 招提 CVR，右边 3 招让算法多分发你。这是整个工具箱最重要的一段。</p>
     </div>
-
-    <div class="tk-card tk-tips">
-      <h4>💡 小技巧 · 让笔记多吃一波流量</h4>
-      <p class="tk-sub">这些不是必做，但做了数据会更好看</p>
-      <ul class="tips-list">
-        <li><b>正文埋时间锚点</b><span>"今晚 X 点比赛"——绑定具体场次，搜索匹配更精准</span></li>
-        <li><b>发布卡比赛前 2-3 小时</b><span>用户正好在备战看球，决策窗口最短</span></li>
-        <li><b>评论区预埋互动话术</b><span>"你支持哪队？" / "猜比分" — 提评论率拉算法权重</span></li>
-        <li><b>挂商品卡 + 店铺定位</b><span>把流量直接接到转化链路，别只赚曝光</span></li>
-        <li><b>赛后回收 UGC 做合集</b><span>用户拍的照片合成「这周谁拍得最好看」，长尾再吃 1 周</span></li>
+  </div>
+  <div class="content-cols">
+    <div class="content-col">
+      <div class="cc-tag">🚀 提转化（CVR）</div>
+      <ul class="trick-list">
+        <li><b>客户原话做标题，比形容词强 6 倍</b><span>✅"完全像在嚼固体牛奶" ❌"真的球球了"——用真实球迷口吻替代"绝绝子"。</span></li>
+        <li><b>"人群 × 场景"指向，CVR 翻倍</b><span>回答 3 问：给谁吃？什么场景？解决什么？例："25+ 姐妹熬夜看球囤这个"，CVR 是行业基准 2.1 倍。</span></li>
+        <li><b>价格锚点 + 紧迫感组合拳</b><span>例："决赛限定 9.9/盒 · 仅 500 份 · 倒计时 3 天"——世界杯赛程天然带紧迫感，用满它。</span></li>
+        <li><b>反向筛选反而提升转化</b><span>"不是脆口零食，是看球边聊边嗦的款"——劝退不合适的人，降退货率。</span></li>
+      </ul>
+    </div>
+    <div class="content-col">
+      <div class="cc-tag">🌱 提算法分发</div>
+      <ul class="trick-list">
+        <li><b>结尾埋评论钩子</b><span>"今晚谁赢谁输你猜？" 高自然流笔记评论/点赞比是普通的 1.7 倍，世界杯天然适合互动。</span></li>
+        <li><b>群体身份激活同温层</b><span>"25+ 姐妹""熬夜党""i 球迷慎入"——划清边界 = 激活归属感，比泛泛的"大家"互动率高。</span></li>
+        <li><b>多图 + 长正文</b><span>高自然流均 267 字 + 4-5 张图。多写场景细节（"凌晨 3 点的厨房"），别只堆话题。</span></li>
       </ul>
     </div>
   </div>
+</div>
+
+<!-- Step 4 挂话题 -->
+<div class="step-block">
+  <div class="step-h">
+    <span class="step-num">4</span>
+    <div>
+      <h3>挂话题 · 1 大热 + 2 中尾 + 1-2 品类</h3>
+      <p>3-5 个话题组合用。<b>官方话题至少带 1 个</b>，能蹭平台流量扶持。</p>
+    </div>
+  </div>
+  <div class="tag-stack">
+    <div class="tag-group">
+      <div class="tag-label">🎁 官方话题（强烈建议带 1 个）</div>
+      <div class="tags-cloud">
+        <span class="tg-hot">#球迷备战餐</span>
+        <span class="tg-hot">#无时差观赛地图</span>
+        <span class="tg-hot">#世界杯世界胃</span>
+        <span class="tg-hot">#美食应援</span>
+      </div>
+    </div>
+    <div class="tag-group">
+      <div class="tag-label">大热词 / 中尾词</div>
+      <div class="tags-cloud">
+        <span>#世界杯</span>
+        <span>#世界杯联名</span>
+        <span>#球迷必备</span>
+        <span>#熬夜看球</span>
+        <span>#32强打卡</span>
+        <span>#国旗甜品</span>
+      </div>
+    </div>
+    <div class="tag-group">
+      <div class="tag-label">品类 / 场景词</div>
+      <div class="tags-cloud">
+        <span>#美食创意</span>
+        <span>#家庭聚餐</span>
+        <span>#办公室下午茶</span>
+        <span>#夜宵</span>
+        <span>#夏日饮品</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Step 5 发布前自查 -->
+<div class="step-block">
+  <div class="step-h">
+    <span class="step-num">5</span>
+    <div>
+      <h3>发布前自查 · 5 个加分动作</h3>
+      <p>不是必做，但做了数据会更好看。</p>
+    </div>
+  </div>
+  <ul class="tips-list" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0 18px">
+    <li><b>正文埋时间锚点</b><span>"今晚 X 点比赛"——绑定具体场次，搜索匹配更精准</span></li>
+    <li><b>发布卡比赛前 2-3 小时</b><span>用户正在备战看球，决策窗口最短</span></li>
+    <li><b>评论区预埋互动话术</b><span>"你支持哪队？""猜比分"——提评论率拉算法权重</span></li>
+    <li><b>商品卡放在 2 屏内</b><span>必须高于"展开全文"按钮，转化链路缩短</span></li>
+    <li style="grid-column:1/3"><b>赛后回收 UGC 做合集</b><span>"这周谁拍得最好看"——长尾再吃 1 周流量</span></li>
+  </ul>
 </div>
 
 <div style="text-align:center;margin:32px 0 8px;font-size:13px;color:#888">
@@ -1767,7 +2087,7 @@ code.copyable.copied::after { display: none; }
             <ul>
               <li>竞猜 / 盲盒上线</li>
               <li>"猜对比分送同款"</li>
-              <li>套餐 GMV 拉满</li>
+              <li>套餐转化拉满</li>
             </ul>
           </div>
         </div>
@@ -1824,7 +2144,7 @@ code.copyable.copied::after { display: none; }
         <div class="aw-no">2</div>
         <div class="aw-body">
           <b>备好 5 篇预热笔记初稿</b>
-          <span>用 Tab 2 的标题模板套，配封面四要素拍图。开赛前 3 天每天发 1 篇，节奏稳。</span>
+          <span>用 Tab 2 的标题模板 + CVR 9 招照着写。开赛前 3 天每天发 1 篇，节奏稳。</span>
         </div>
       </div>
       <div class="aw-step">
@@ -1948,7 +2268,7 @@ code.copyable.copied::after { display: none; }
         <div class="inc-tag">#世界杯世界胃</div>
         <div class="inc-scene">小组赛 · 跟着赛程吃全球</div>
         <ul>
-          <li><b>高点</b>：栏目「跟着赛程吃全球」· 进球即发图，即时热点响应</li>
+          <li><b>主推</b>：栏目「跟着赛程吃全球」· 进球即发图，即时热点响应</li>
           <li><b>UGC</b>：世界美食跟学试菜</li>
         </ul>
         <span class="inc-go">带话题去发笔记 →</span>
@@ -1958,7 +2278,7 @@ code.copyable.copied::after { display: none; }
         <div class="inc-tag">#美食应援</div>
         <div class="inc-scene">决赛周 · 玩梗高峰</div>
         <ul>
-          <li><b>高点</b>：栏目「球迷饭局」· 高点作者 + 资深球迷</li>
+          <li><b>主推</b>：栏目「球迷饭局」· 头部美食作者 + 资深球迷联动</li>
           <li><b>UGC</b>：球王同款餐 / 输球消气水 / 赢球 bravo 餐</li>
         </ul>
         <span class="inc-go">带话题去发笔记 →</span>
@@ -1966,35 +2286,177 @@ code.copyable.copied::after { display: none; }
     </div>
 
     <div class="inc-tip">
-      💡 <b>怎么蹭最划算</b>：商家笔记建议带 1 个官方话题 + 1-2 个长尾词。例：<code>#球迷备战餐 #世界杯美食 #足球馒头</code>，命中流量池后再叠加产品/品类词。
+      💡 <b>怎么蹭最划算</b>：笔记建议带 1 个官方话题 + 1-2 个长尾词。例：<code>#球迷备战餐 #世界杯美食 #足球馒头</code>，命中话题流量后再叠加产品/品类词。
     </div>
   </div>
 
-  <!-- 版权风险 -->
-  <div class="risk-box">
-    <div class="risk-title">⚠️ 发布前最后看一眼：别踩版权的坑</div>
-    <p style="margin:0 0 12px;font-size:13px;color:#444;line-height:1.6">
-      <b>FIFA 官方 Logo、吉祥物、「World Cup」英文商标</b>都有授权限制，直接用包装/商品名上有侵权风险——花钱做了内容反被下架就亏大了。下面这两栏对照着看，<b>「不要」的坑别踩，「可以」的方式放心用</b>：
-    </p>
-    <div class="risk-grid">
-      <div class="risk-item">
-        <p><span class="risk-cross">❌ 不要</span></p>
-        <p>· 在产品包装/名称上直接使用 FIFA Logo 或吉祥物</p>
-        <p>· 把"World Cup""FIFA"作为商品名核心词</p>
-        <p>· 引用官方比赛画面 / 队徽未经授权使用</p>
-      </div>
-      <div class="risk-item">
-        <p><span class="risk-check">✅ 可以</span></p>
-        <p>· 标题用<b>「足球美食 / 观赛美食」</b>替代「世界杯美食」</p>
-        <p>· 产品描述用<b>「足球主题 / 夏日赛事」</b>规避</p>
-        <p>· 笔记话题挂 #世界杯（用户话题，安全）</p>
-        <p>· 自创设计的足球纹 / 国旗色系不涉权</p>
-      </div>
-    </div>
+  <div style="text-align:center;margin:24px 0 8px;font-size:13px;color:#888">
+    日历排好了？发笔记前一定要看 → <b style="color:#ff2442">Tab 4「避免踩坑」</b>，4 个高频违规点别中招
   </div>
-
 
 </div><!-- /tab3 -->
+
+
+<!-- ===================================================================== -->
+<!-- TAB 4: 避免踩坑                                                         -->
+<!-- ===================================================================== -->
+<div class="tab-pane" id="t4">
+
+  <!-- 头部警示 -->
+  <div class="warn-hero">
+    <span class="wh-tag">⚠️ 发布前必读</span>
+    <h2 style="margin:6px 0 8px;font-size:24px;color:#fff">世界杯借势发笔记 · 这几个坑别踩</h2>
+    <p style="margin:0;color:rgba(255,255,255,.85);font-size:13.5px;line-height:1.7">花钱做了一篇好笔记，结果限流 / 下架 / 投诉 — 比没发还亏。下面 4 个坑按踩中频率排序，<b style="color:#FFD700">前两条是高压线，绝对别碰</b>。</p>
+  </div>
+
+  <!-- 高压线 #1 -->
+  <div class="trap-card trap-red">
+    <div class="trap-header">
+      <span class="trap-no">坑 #1</span>
+      <span class="trap-pri pri-red">🔴 第一优先级 · 高压线</span>
+    </div>
+    <h3>封面 / 标题别蹭球星 & 品牌</h3>
+    <div class="trap-body">
+      <p><b>什么算违规：</b>封面或标题写「梅西同款」「C 罗推荐」「世界杯官方指定」——但正文卖的是自己家的零食。这就是<b style="color:#ff2442">封标蹭热</b>，平台直接处置（限流 → 下架 → 扣分）。</p>
+      <p style="margin-top:6px"><b>食品类常见高危蹭热品牌：</b>山姆 / 盒马 / 胖东来。<b>球星 / 赛事 IP 同理</b>，蹭了就违规。</p>
+
+      <div class="trap-cmp">
+        <div class="cmp-bad">
+          <div class="cmp-head">❌ 这样写会限流</div>
+          <ul>
+            <li>「梅西同款应援零食」</li>
+            <li>「C 罗都在吃的薯片」</li>
+            <li>「世界杯官方指定饮料」</li>
+            <li>「FIFA 钦点观赛小食」</li>
+          </ul>
+        </div>
+        <div class="cmp-good">
+          <div class="cmp-head">✅ 这样写就安全</div>
+          <ul>
+            <li>「世界杯观赛必备零食」</li>
+            <li>「看球配这个不会胖」</li>
+            <li>「助威夜宵推荐 TOP 5」</li>
+            <li>「追赛季限定·足球主题」</li>
+          </ul>
+        </div>
+      </div>
+      <p class="trap-rule">📏 <b>规则一句话：</b>蹭场景，不蹭具体人名 / 品牌名 / 官方授权词。</p>
+    </div>
+  </div>
+
+  <!-- 高压线 #2 -->
+  <div class="trap-card trap-red">
+    <div class="trap-header">
+      <span class="trap-no">坑 #2</span>
+      <span class="trap-pri pri-red">🔴 第二优先级 · 高压线</span>
+    </div>
+    <h3>批量发笔记别套同款模板</h3>
+    <div class="trap-body">
+      <p>世界杯期间商家最容易冲动：一口气发 5-6 篇「世界杯零食合集」。<b style="color:#ff2442">7 天内 3 篇及以上高度相似 = 工业化流水号 = 限流</b>。</p>
+      <p style="margin-top:6px"><b>系统怎么识别：</b>不是看你换没换图。换封面、换顺序、加个字——<b>都不够</b>。系统比对的是：标题结构相似度、正文骨架、商品卡、话题组合。</p>
+
+      <div class="trap-cmp">
+        <div class="cmp-bad">
+          <div class="cmp-head">❌ 工业化流水线（会被识别）</div>
+          <ul>
+            <li>笔记 1：世界杯零食 TOP10</li>
+            <li>笔记 2：世界杯零食合集</li>
+            <li>笔记 3：世界杯必囤零食</li>
+            <li>都是产品堆砌图 + 标价</li>
+          </ul>
+        </div>
+        <div class="cmp-good">
+          <div class="cmp-head">✅ 真实差异化（每篇都鲜活）</div>
+          <ul>
+            <li>笔记 1：聊观赛场景（朋友趴）</li>
+            <li>笔记 2：聊产品成分（健康向）</li>
+            <li>笔记 3：聊包装送礼（情绪向）</li>
+            <li>不同切入点 = 不同笔记</li>
+          </ul>
+        </div>
+      </div>
+      <p class="trap-rule">📏 <b>规则一句话：</b>每篇笔记要有真正不同的切入点，不是改改标题就算新内容。</p>
+    </div>
+  </div>
+
+  <!-- 警示 #3 -->
+  <div class="trap-card trap-yellow">
+    <div class="trap-header">
+      <span class="trap-no">坑 #3</span>
+      <span class="trap-pri pri-yellow">🟡 注意 · 影响品质分</span>
+    </div>
+    <h3>AI 修图可以，别让商品失真</h3>
+    <div class="trap-body">
+      <p>用 AI 美化场景图、加滤镜、调氛围光——<b>都没问题</b>。但<b style="color:#d97706">零食本身的颜色、大小、份量不能和实物差太多</b>。</p>
+      <p style="margin-top:6px"><b>触发投诉 → 品质分掉 → 流量减少。</b>买家秀对比一发，商品分立刻下滑——这是慢性损伤，比限流更难恢复。</p>
+      <p class="trap-rule">📏 <b>规则一句话：</b>修美化的环境 OK，修产品本身的颜色 / 体积 / 份量 — 不行。</p>
+    </div>
+  </div>
+
+  <!-- 警示 #4 -->
+  <div class="trap-card trap-yellow">
+    <div class="trap-header">
+      <span class="trap-no">坑 #4</span>
+      <span class="trap-pri pri-yellow">🟡 注意 · 涉及功效违规</span>
+    </div>
+    <h3>别写功效词</h3>
+    <div class="trap-body">
+      <p>世界杯场景商家最容易冲动写的功效词，下面这两条踩坑率特别高：</p>
+      <div class="trap-cmp">
+        <div class="cmp-bad">
+          <div class="cmp-head">❌ 涉功效（违规）</div>
+          <ul>
+            <li>「补充体力，熬夜看球不累」</li>
+            <li>「助眠款，看完球睡得好」</li>
+            <li>「提神醒脑，凌晨看球必备」</li>
+            <li>「调理肠胃，吃了不胖」</li>
+          </ul>
+        </div>
+        <div class="cmp-good">
+          <div class="cmp-head">✅ 场景词（安全）</div>
+          <ul>
+            <li>「看球必备 / 解馋神器」</li>
+            <li>「追赛季限定」</li>
+            <li>「夜宵搭子 / 凌晨续命」</li>
+            <li>「夏日开胃 / 三五好友分享」</li>
+          </ul>
+        </div>
+      </div>
+      <p class="trap-rule">📏 <b>规则一句话：</b>讲场景、讲情绪、讲使用时机——但不讲功效。</p>
+    </div>
+  </div>
+
+  <!-- 版权风险（移过来） -->
+  <div class="trap-card trap-yellow">
+    <div class="trap-header">
+      <span class="trap-no">坑 #5</span>
+      <span class="trap-pri pri-yellow">🟡 注意 · 商标授权</span>
+    </div>
+    <h3>FIFA Logo / 吉祥物 / "World Cup" 都有授权</h3>
+    <div class="trap-body">
+      <p>这三样东西用在<b>包装、商品名、商品详情图</b>上有侵权风险——花钱做了产品反被下架就亏大了。笔记里挂 <code style="background:#fff0ec;color:#ff2442;padding:1px 6px;border-radius:3px">#世界杯</code> 话题没问题（用户话题，安全）。</p>
+      <div class="trap-cmp">
+        <div class="cmp-bad">
+          <div class="cmp-head">❌ 别这样用</div>
+          <ul>
+            <li>产品包装印 FIFA Logo / 吉祥物</li>
+            <li>商品名核心词用 "World Cup" / "FIFA"</li>
+            <li>详情图直接引用官方比赛画面 / 队徽</li>
+          </ul>
+        </div>
+        <div class="cmp-good">
+          <div class="cmp-head">✅ 安全替代</div>
+          <ul>
+            <li>用「足球美食 / 观赛美食」替代「世界杯美食」</li>
+            <li>商品描述用「足球主题 / 夏日赛事」</li>
+            <li>自创设计的足球纹 / 国旗色系不涉权</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab4 -->
 
 <!-- 统一页脚 -->
 <div class="page-footer">
@@ -2025,6 +2487,37 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     }
   });
 });
+
+// 阅读计数器（基于免费的 CountAPI / 也可用本地 fallback）
+(function(){
+  const el = document.getElementById('viewCount');
+  if (!el) return;
+  // 命名空间 + 键，确保唯一
+  const NS = 'xhs-worldcup-food-2026';
+  const KEY = 'guide-views';
+  fetch('https://api.counterapi.dev/v1/' + NS + '/' + KEY + '/up', { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => {
+      const n = (d && (d.count || d.value)) || 0;
+      el.textContent = formatNum(n);
+    })
+    .catch(() => {
+      // fallback: 本地 localStorage 模拟（仅当前用户可见）
+      try {
+        const k = 'wc_food_views';
+        const v = parseInt(localStorage.getItem(k) || '0', 10) + 1;
+        localStorage.setItem(k, v);
+        el.textContent = formatNum(v);
+      } catch (_) {
+        el.textContent = '—';
+      }
+    });
+  function formatNum(n){
+    if (n >= 10000) return (n/10000).toFixed(1).replace(/\.0$/, '') + 'w';
+    if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    return n.toString();
+  }
+})();
 
 // 文案一键复制
 document.querySelectorAll('code.copyable').forEach(el => {
