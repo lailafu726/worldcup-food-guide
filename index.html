@@ -1,0 +1,2050 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>小红书 · 世界杯借势｜食品类目内容&产品创新指南</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,36,66,.06), transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(0,156,59,.05), transparent 40%),
+    #faf8f5;
+  color: #1a1a1a;
+  line-height: 1.65;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 28px 80px; }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #00833f 0%, #007a3d 50%, #004d28 100%);
+  color: #fff;
+  border-radius: 24px;
+  padding: 40px 40px 32px;
+  margin-bottom: 22px;
+  box-shadow: 0 20px 60px -20px rgba(0,77,40,.4);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: .5;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -80px; top: 50%;
+  transform: translateY(-50%);
+  width: 280px; height: 280px;
+  border: 2px solid rgba(255,255,255,.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero .badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.15); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 6px 14px; border-radius: 100px;
+  font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+.hero h1 { font-size: 34px; margin: 0 0 12px; font-weight: 800; line-height: 1.2; letter-spacing: -.5px; }
+.hero-meta {
+  position: absolute;
+  top: 18px; right: 24px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: rgba(255,255,255,.85);
+  font-weight: 500;
+  letter-spacing: .5px;
+  z-index: 2;
+}
+.hero p { margin: 0; font-size: 15px; opacity: .9; max-width: 680px; }
+.ball {
+  display: inline-block; width: 22px; height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #fff 35%, #ddd 50%), #fff;
+  position: relative;
+  box-shadow: inset -3px -3px 6px rgba(0,0,0,.2), 0 2px 6px rgba(0,0,0,.3);
+  vertical-align: middle;
+}
+.ball::before, .ball::after { content: ""; position: absolute; background: #1a1a1a; }
+.ball::before {
+  width: 6px; height: 6px; top: 4px; left: 8px;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+.ball::after {
+  width: 5px; height: 5px; bottom: 5px; right: 5px;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+/* ============ TABS ============ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  background: #fff;
+  padding: 6px;
+  border-radius: 16px;
+  border: 1px solid #ececec;
+  margin-bottom: 28px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  box-shadow: 0 6px 18px -6px rgba(0,0,0,.08);
+}
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #888;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.tab-btn:hover { color: #1a1a1a; background: #faf8f5; }
+.tab-btn.active {
+  background: linear-gradient(135deg, #ff2442, #ff6b35);
+  color: #fff;
+  box-shadow: 0 6px 14px -4px rgba(255,36,66,.4);
+}
+.tab-btn .tb-num {
+  background: rgba(255,255,255,.25);
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+}
+.tab-btn:not(.active) .tb-num { background: #f0f0f0; color: #888; }
+
+.tab-pane { display: none; animation: fade .25s ease; }
+.tab-pane.active { display: block; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* ============ COMMON H2 / CARDS ============ */
+h2 {
+  font-size: 22px;
+  margin: 36px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+}
+h2:first-child { margin-top: 8px; }
+h2 .num {
+  display: inline-flex;
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  color: #fff;
+  border-radius: 50%;
+  align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+  box-shadow: inset -2px -2px 4px rgba(255,255,255,.1), 0 4px 12px rgba(0,0,0,.15);
+}
+h2 + .lede { color: #666; margin: 0 0 18px 44px; font-size: 13px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px rgba(0,0,0,.1); }
+.card-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; }
+.card .tag {
+  display: inline-block;
+  background: #fff0ec; color: #ff2442;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.card p { margin: 0 0 6px; font-size: 13px; color: #333; }
+.card ul { margin: 4px 0 0; padding-left: 16px; font-size: 12px; color: #555; }
+.card ul li { margin-bottom: 2px; }
+
+/* ============ TAB 1: 机会全景 ============ */
+.opportunity-section {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  padding: 28px 30px;
+  margin-bottom: 18px;
+}
+.opp-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: #FFD700;
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+.kpi {
+  background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.kpi-label { font-size: 11px; color: #888; margin-bottom: 6px; }
+.kpi-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ff2442;
+  letter-spacing: -.3px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.kpi-sub { font-size: 11px; color: #666; line-height: 1.45; }
+
+.trend-block, .insight-block {
+  background: #faf8f5;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.trend-title {
+  font-size: 14px; font-weight: 700;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+  display: flex; align-items: center; gap: 6px;
+}
+.trend-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 130px;
+  padding: 10px 4px 4px;
+  border-bottom: 1px dashed #d0d0d0;
+  position: relative;
+}
+.bar {
+  flex: 1;
+  background: #d4d4d4;
+  border-radius: 3px 3px 0 0;
+  min-height: 6px;
+  position: relative;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.bar.hot { background: linear-gradient(180deg, #ff6b35, #ff2442); }
+.bar.peak { background: linear-gradient(180deg, #FFD700 0%, #ff2442 100%); box-shadow: 0 0 12px rgba(255,36,66,.4); }
+.bar:hover { opacity: .8; }
+.bar:hover::after {
+  content: attr(data-date) " · " attr(data-label);
+  position: absolute;
+  bottom: 100%; left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a; color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  z-index: 10;
+}
+.bar[data-event]::before {
+  content: attr(data-event);
+  position: absolute;
+  bottom: 100%; left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #ff2442;
+  white-space: nowrap;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+.trend-foot {
+  display: flex;
+  gap: 14px;
+  font-size: 11px;
+  color: #555;
+  margin-top: 10px;
+  align-items: center;
+}
+.trend-foot .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+.dot-base { background: #d4d4d4; }
+.dot-hot { background: linear-gradient(180deg, #ff6b35, #ff2442); }
+.dot-peak { background: linear-gradient(180deg, #FFD700, #ff2442); }
+
+.kw-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.kw-table th {
+  background: #1a1a1a; color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+}
+.kw-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; }
+.kw-table tr.dim td { color: #999; background: #fafafa; font-size: 12px; }
+.kw-table tr.dim td b { color: #999; }
+.kw-cat {
+  display: inline-block;
+  padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600; color: #fff;
+}
+.cat1 { background: #ff2442; }
+.cat2 { background: #ff8c00; }
+.cat3 { background: #00833f; }
+.cat4 { background: #722ed1; }
+.kw-table .up { color: #ff2442; font-weight: 600; }
+.kw-table .down { color: #999; }
+.kw-table .flat { color: #888; }
+.lvl { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.lvl-h { background: #ffe4e6; color: #c00; }
+.lvl-m { background: #fff3e0; color: #d97706; }
+.lvl-l { background: #e6fffa; color: #00833f; }
+.lvl-w { background: #fffbe6; color: #b8860b; }
+.kw-divider {
+  background: #f5f5f5 !important;
+  color: #666 !important;
+  font-size: 11px !important;
+  padding: 8px 12px !important;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 4px;
+}
+.insight-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.ins-icon {
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.insight-card h4 { margin: 0 0 5px; font-size: 13.5px; font-weight: 700; }
+.insight-card p { margin: 0; font-size: 12px; color: #555; line-height: 1.55; }
+.insight-card p b { color: #1a1a1a; }
+.insight-card.insight-night {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-color: #333;
+  position: relative;
+}
+.insight-night h4 { color: #fff; }
+.insight-night p { color: #bbb; }
+.insight-night p b { color: #FFD700; }
+.insight-night .ins-pin {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: #FFD700;
+  color: #1a1a1a;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* 关键反转 */
+.persona-truth {
+  background: linear-gradient(135deg, #fff0ec 0%, #ffe4e6 100%);
+  border-left: 4px solid #ff2442;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+.truth-tag {
+  display: inline-block;
+  background: #ff2442; color: #fff;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 4px;
+  margin-bottom: 6px;
+}
+.persona-truth p { margin: 0; font-size: 13px; color: #333; line-height: 1.6; }
+.persona-truth b { color: #ff2442; }
+
+/* 双重人群对照 */
+.dual-audience {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0;
+}
+.dual-card {
+  border-radius: 14px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.dual-card {
+  background: #fff;
+  border: 1px solid #ececec;
+}
+.dual-card.male { border-top: 4px solid #1a1a1a; }
+.dual-card.female { border-top: 4px solid #ff2442; }
+.dual-card .dual-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 4px;
+  margin-bottom: 6px;
+}
+.dual-card.male .dual-tag { background: #1a1a1a; color: #FFD700; }
+.dual-card.female .dual-tag { background: #ff2442; color: #fff; }
+.dual-card h4 { margin: 0 0 4px; font-size: 16px; font-weight: 800; color: #1a1a1a; }
+.dual-card .dual-meta { margin: 0 0 10px; font-size: 11.5px; color: #666; }
+.dual-card ul { margin: 0; padding-left: 16px; font-size: 12.5px; color: #333; }
+.dual-card ul li { margin-bottom: 5px; line-height: 1.55; }
+.dual-card ul li b { color: #1a1a1a; }
+@media (max-width: 980px) {
+  .dual-audience { grid-template-columns: 1fr; }
+}
+
+/* 简化人群条 */
+.persona-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: #faf8f5;
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+.psn-chip {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: #333;
+  flex: 1;
+  min-width: 160px;
+}
+.psn-chip b { display: block; color: #1a1a1a; font-weight: 700; margin-bottom: 2px; font-size: 13px; }
+.psn-chip span { color: #888; font-size: 11px; }
+
+.summary-line {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #fff;
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin-top: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.summary-line::before {
+  content: "🏆";
+  position: absolute;
+  font-size: 180px;
+  right: -20px; bottom: -50px;
+  opacity: .06;
+}
+.summary-line > * { position: relative; }
+.sum-tag {
+  display: inline-block;
+  background: rgba(255,215,0,.2);
+  color: #FFD700;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 4px;
+  margin-bottom: 10px;
+}
+.summary-line p { margin: 0; font-size: 14px; line-height: 1.7; color: #ddd; }
+.summary-line p b { color: #FFD700; }
+
+/* ============ TAB 2: 内容玩法 ============ */
+.flag-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.flag {
+  border-radius: 10px;
+  padding: 12px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  min-height: 80px;
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,.15);
+}
+.flag span { display: block; font-size: 11px; opacity: .9; font-weight: 500; margin-top: 4px; line-height: 1.4; }
+
+.copy-box {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 12px;
+}
+.copy-box h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #ff2442;
+  display: flex; align-items: center; gap: 8px;
+}
+.copy-box h4::before {
+  content: "";
+  display: inline-block;
+  width: 4px; height: 16px;
+  background: #ff2442;
+  border-radius: 2px;
+}
+.copy-box code {
+  display: block;
+  background: #faf8f5;
+  border-left: 3px solid #ff2442;
+  padding: 9px 13px;
+  margin: 5px 0;
+  font-family: -apple-system, "PingFang SC", monospace;
+  font-size: 12.5px;
+  border-radius: 0 6px 6px 0;
+  color: #333;
+}
+
+/* 三大产品符号 */
+.symbol-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.symbol-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.symbol-card::before {
+  position: absolute;
+  font-size: 110px;
+  right: -20px; top: -20px;
+  opacity: .06;
+}
+.symbol-1::before { content: "🏆"; }
+.symbol-2::before { content: "⚽"; }
+.symbol-3::before { content: "🏴"; }
+.symbol-card .sym-rank {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff2442, #ff6b35);
+  color: #fff;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 100px;
+  margin-bottom: 8px;
+}
+.symbol-card h3 { margin: 0 0 4px; font-size: 16px; font-weight: 800; }
+.symbol-card .sym-desc { font-size: 12px; color: #888; margin-bottom: 10px; }
+.symbol-card ul { margin: 0; padding-left: 16px; font-size: 12.5px; color: #444; }
+.symbol-card ul li { margin-bottom: 3px; line-height: 1.5; }
+
+/* 深夜场景 highlight */
+.night-block {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #fff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 12px 0 18px;
+  position: relative;
+  overflow: hidden;
+}
+.night-block::before {
+  content: "🌙";
+  position: absolute;
+  font-size: 180px;
+  right: -30px; top: -50px;
+  opacity: .06;
+}
+.night-block > * { position: relative; }
+.night-tag {
+  display: inline-block;
+  background: rgba(255,215,0,.2); color: #FFD700;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 4px;
+  margin-bottom: 8px;
+}
+.night-block h3 { margin: 0 0 6px; font-size: 17px; font-weight: 800; }
+.night-block p { margin: 0 0 10px; font-size: 13px; color: #ccc; line-height: 1.6; }
+.night-block .night-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 10px;
+}
+.night-block .night-tags span {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,215,0,.3);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: #FFD700;
+}
+
+/* 6 玩法 */
+.play-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.play-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 18px 20px;
+  position: relative;
+}
+.play-card .play-no {
+  position: absolute;
+  top: 14px; right: 18px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #f0f0f0;
+  letter-spacing: -1px;
+}
+.play-card .play-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.tag-stable { background: #fff0ec; color: #ff2442; }
+.tag-diy { background: #fff0ec; color: #ff2442; }
+.tag-hot { background: #ff2442; color: #fff; }
+.tag-night { background: #1a1a1a; color: #FFD700; }
+.tag-health { background: #faf8f5; color: #1a1a1a; border: 1px solid #e0e0e0; }
+.tag-emo { background: #faf8f5; color: #1a1a1a; border: 1px solid #e0e0e0; }
+.play-card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 800; }
+.play-card .play-meta { font-size: 11.5px; color: #888; margin-bottom: 10px; }
+.play-card ul { margin: 0; padding-left: 16px; font-size: 13px; color: #444; }
+.play-card ul li { margin-bottom: 4px; line-height: 1.55; }
+
+/* Toolkit */
+.toolkit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+.tk-left, .tk-right { display: flex; flex-direction: column; gap: 12px; }
+.tk-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+.tk-card h4 { margin: 0 0 4px; font-size: 14px; font-weight: 700; color: #1a1a1a; }
+.tk-card .tk-sub { margin: 0 0 10px; font-size: 11.5px; color: #888; }
+.tk-card .tk-sub b { color: #ff2442; }
+.tk-card code {
+  display: block;
+  background: #faf8f5;
+  border-left: 3px solid #ff2442;
+  padding: 7px 11px;
+  margin: 4px 0;
+  font-family: -apple-system, "PingFang SC", monospace;
+  font-size: 12px;
+  border-radius: 0 6px 6px 0;
+  color: #333;
+  line-height: 1.5;
+}
+code.copyable {
+  cursor: pointer;
+  position: relative;
+  transition: background .2s, border-color .2s;
+}
+code.copyable::after {
+  content: "📋";
+  position: absolute;
+  right: 8px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  opacity: .35;
+  transition: opacity .2s;
+}
+code.copyable:hover { background: #fff0ec; }
+code.copyable:hover::after { opacity: 1; }
+code.copyable.copied {
+  background: #1a1a1a;
+  color: #FFD700;
+  border-left-color: #FFD700;
+  text-align: center;
+  font-weight: 700;
+}
+code.copyable.copied::after { display: none; }
+.cover-mock {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #fff4e6 0%, #ffe7d6 50%, #d4f1d4 100%);
+  border-radius: 10px;
+  border: 2px dashed #ddd;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 28px;
+  padding: 8px;
+  gap: 5px;
+  font-size: 11px;
+}
+.cover-zone {
+  background: rgba(255,255,255,.85);
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-weight: 700;
+  color: #1a1a1a;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.cover-zone span { font-weight: 400; color: #666; font-size: 10px; }
+.cover-zone.z1 { background: rgba(255,36,66,.92); color: #fff; }
+.cover-zone.z1 span { color: rgba(255,255,255,.85); }
+.cover-zone.z2 { grid-row: 1 / 3; grid-column: 2; align-items: center; text-align: center; background: rgba(0,131,63,.85); color: #fff; }
+.cover-zone.z2 span { color: rgba(255,255,255,.85); }
+.cover-zone.z3 { grid-column: 1; }
+.cover-zone.z4 {
+  grid-column: 1 / 3;
+  background: rgba(26,26,26,.85);
+  color: #FFD700;
+  text-align: center;
+  font-size: 10.5px;
+  padding: 4px;
+}
+.tag-group { margin-bottom: 11px; }
+.tag-group:last-child { margin-bottom: 0; }
+.tag-label { font-size: 11px; color: #888; margin-bottom: 6px; font-weight: 500; }
+.tags-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
+.tags-cloud span {
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding: 4px 11px;
+  font-size: 11.5px;
+  color: #444;
+  font-weight: 500;
+}
+.tags-cloud span.tg-hot {
+  background: linear-gradient(135deg, #ff2442, #ff6b35);
+  color: #fff;
+  font-weight: 700;
+}
+.tk-tips { background: #faf8f5; }
+.tk-tips h4 { color: #1a1a1a; }
+.tips-list { list-style: none; padding: 0; margin: 0; }
+.tips-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed #e8e0d4;
+  font-size: 12.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #444;
+}
+.tips-list li:last-child { border-bottom: none; }
+.tips-list li b { color: #1a1a1a; font-size: 13px; }
+.tips-list li b::before { content: "💡 "; }
+.tips-list li span { color: #888; font-size: 12px; line-height: 1.5; }
+
+/* 封面四要素 - 列表式 */
+.cover-list { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.cover-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  background: #faf8f5;
+  border-radius: 10px;
+}
+.cs-no {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+}
+.cs-body { flex: 1; font-size: 12.5px; color: #555; line-height: 1.5; }
+.cs-body b { display: inline; color: #1a1a1a; font-size: 13px; font-weight: 700; }
+.cs-body span { display: block; color: #888; font-size: 11.5px; margin-top: 3px; line-height: 1.5; }
+
+/* ============ TAB 3: 执行落地 ============ */
+.timeline-section {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  padding: 28px 32px;
+  margin-bottom: 18px;
+}
+.timeline-rail {
+  position: relative;
+  margin: 24px 0 12px;
+  padding: 0 8px;
+}
+.timeline-rail::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 36px;
+  height: 4px;
+  background: linear-gradient(90deg,
+    #ff2442 0%, #ff2442 18%,
+    #ff6b35 18%, #ff6b35 38%,
+    #00833f 38%, #00833f 65%,
+    #FFD700 65%, #FFD700 88%,
+    #1a1a1a 88%);
+  border-radius: 4px;
+}
+.tl-stages { display: grid; grid-template-columns: 18% 20% 27% 23% 12%; position: relative; }
+.tl-stage { position: relative; padding-top: 60px; }
+.tl-stage::before {
+  content: "";
+  position: absolute;
+  top: 28px; left: 50%;
+  transform: translateX(-50%);
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid currentColor;
+  box-shadow: 0 0 0 4px #fff, 0 4px 10px rgba(0,0,0,.1);
+}
+.tl-stage h4 { margin: 0 0 4px; font-size: 13.5px; font-weight: 700; text-align: center; }
+.tl-stage .tl-date { display: block; text-align: center; font-size: 11px; color: #888; margin-bottom: 10px; letter-spacing: .5px; }
+.tl-stage .tl-body {
+  background: #faf8f5;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #444;
+  margin: 0 4px;
+  border-top: 3px solid currentColor;
+}
+.tl-stage .tl-body strong { display: block; font-size: 12px; color: #222; margin-bottom: 4px; }
+.tl-stage .tl-body ul { padding-left: 14px; margin: 4px 0 0; }
+.tl-stage .tl-body li { margin-bottom: 2px; }
+.tl-c1 { color: #ff2442; }
+.tl-c2 { color: #ff6b35; }
+.tl-c3 { color: #00833f; }
+.tl-c4 { color: #FFD700; }
+.tl-c5 { color: #1a1a1a; }
+.tl-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #e0e0e0;
+  font-size: 12px;
+  color: #888;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tl-meta b { color: #ff2442; }
+
+/* 本周行动清单 */
+.action-week {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 24px 28px;
+  margin: 18px 0;
+  position: relative;
+  overflow: hidden;
+}
+.action-week::before {
+  content: "📅";
+  position: absolute;
+  font-size: 200px;
+  right: -20px; bottom: -50px;
+  opacity: .04;
+}
+.action-week > * { position: relative; }
+.aw-header { margin-bottom: 16px; }
+.aw-tag {
+  display: inline-block;
+  background: #FFD700;
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 8px;
+}
+.aw-header h3 { margin: 0 0 4px; font-size: 20px; font-weight: 800; }
+.aw-header p { margin: 0; font-size: 13px; color: #aaa; line-height: 1.5; }
+.aw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.aw-step {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+}
+.aw-no {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, #FFD700, #ff6b35);
+  color: #1a1a1a;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+.aw-body { font-size: 12.5px; flex: 1; }
+.aw-body b { display: block; color: #fff; font-size: 13.5px; margin-bottom: 4px; }
+.aw-body span { color: #bbb; line-height: 1.55; font-size: 12px; }
+@media (max-width: 980px) {
+  .aw-grid { grid-template-columns: 1fr; }
+}
+
+/* 品类机会优先级表 */
+.cat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+.cat-table th {
+  background: #1a1a1a; color: #fff;
+  padding: 11px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+}
+.cat-table td { padding: 11px 12px; border-bottom: 1px solid #f0f0f0; }
+.cat-table tr:last-child td { border-bottom: none; }
+.cat-prio {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.cp-h { background: #ff2442; color: #fff; }
+.cp-m { background: #fff0ec; color: #ff2442; }
+.cp-l { background: #faf8f5; color: #555; border: 1px solid #e0e0e0; }
+.cp-x { background: #faf8f5; color: #888; border: 1px solid #e0e0e0; }
+
+/* 激励专区 */
+.incentive {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff2442 0%, #ff6b35 60%, #ff9a3c 100%);
+  border-radius: 20px;
+  padding: 28px 32px 24px;
+  margin: 18px 0;
+  color: #fff;
+  box-shadow: 0 18px 45px -18px rgba(255,36,66,.5);
+}
+.incentive::before {
+  content: "📣";
+  position: absolute;
+  font-size: 220px;
+  right: -20px; top: -40px;
+  opacity: .07;
+  transform: rotate(-15deg);
+}
+.incentive > * { position: relative; }
+.inc-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.inc-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 5px 12px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px;
+}
+.inc-cta-main {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: #ff2442;
+  padding: 12px 22px; border-radius: 100px;
+  font-size: 14px; font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 20px -4px rgba(0,0,0,.2);
+  transition: transform .2s;
+  white-space: nowrap;
+}
+.inc-cta-main:hover { transform: translateY(-2px); }
+.inc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.inc-card {
+  background: rgba(255,255,255,.97);
+  border-radius: 10px;
+  padding: 12px 12px 10px;
+  text-decoration: none;
+  color: #1a1a1a;
+  display: flex; flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+  border: 2px solid transparent;
+}
+.inc-card:hover {
+  transform: translateY(-3px);
+  border-color: #FFD700;
+}
+.inc-card .inc-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff2442, #ff6b35);
+  color: #fff;
+  padding: 3px 9px; border-radius: 5px;
+  font-size: 11.5px; font-weight: 700;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+.inc-card .inc-scene { font-size: 10.5px; color: #888; margin-bottom: 7px; font-weight: 500; }
+.inc-card ul {
+  margin: 0 0 8px;
+  padding-left: 14px;
+  font-size: 11.5px;
+  color: #333;
+  flex-grow: 1;
+}
+.inc-card ul li { margin-bottom: 4px; line-height: 1.5; }
+.inc-card ul li b { color: #ff2442; }
+.inc-go {
+  display: inline-block;
+  font-size: 11.5px;
+  color: #ff2442;
+  font-weight: 700;
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px dashed #f0d0d0;
+}
+.inc-tip {
+  margin-top: 16px;
+  background: rgba(0,0,0,.18);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 12.5px;
+  color: rgba(255,255,255,.95);
+  line-height: 1.6;
+}
+.inc-tip code {
+  background: rgba(255,255,255,.18);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  margin: 0 2px;
+}
+
+/* 版权风险 */
+.risk-box {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-top: 4px solid #ff2442;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.risk-title { font-size: 15px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px; }
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.risk-item { background: #faf8f5; border-radius: 10px; padding: 14px 16px; }
+.risk-item p { margin: 4px 0; font-size: 12.5px; color: #555; line-height: 1.5; }
+.risk-item p b { color: #1a1a1a; }
+.risk-cross { color: #ff2442; font-weight: 700; }
+.risk-check { color: #1a1a1a; font-weight: 700; }
+
+/* 段落引导语 */
+.section-intro {
+  background: #faf8f5;
+  border-left: 3px solid #ff2442;
+  padding: 12px 18px;
+  margin: 22px 0 14px;
+  border-radius: 0 10px 10px 0;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.7;
+}
+.section-intro b { color: #1a1a1a; }
+.section-intro .si-tag {
+  display: inline-block;
+  background: #ff2442;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* 页脚备注 - 商家友好版 */
+.page-footer {
+  margin: 32px 0 0;
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  text-align: center;
+}
+.footer-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.footer-title::before, .footer-title::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: #ddd;
+}
+.footer-text {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.7;
+  margin: 0;
+}
+.footer-cta {
+  margin-top: 12px;
+  font-size: 12px;
+}
+.footer-cta a {
+  color: #ff2442;
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-cta a:hover { text-decoration: underline; }
+
+.data-warn { display: none; }
+
+@media (max-width: 980px) {
+  .tabs { flex-direction: column; position: relative; top: 0; }
+  .tab-btn { justify-content: flex-start; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .insight-grid { grid-template-columns: 1fr 1fr; }
+  .symbol-row { grid-template-columns: 1fr; }
+  .play-grid { grid-template-columns: 1fr; }
+  .toolkit { grid-template-columns: 1fr; }
+  .tl-stages { grid-template-columns: 1fr; gap: 10px; }
+  .timeline-rail::before { display: none; }
+  .tl-stage { padding-top: 30px; }
+  .tl-stage::before { left: 10px; transform: none; top: 0; }
+  .inc-grid { grid-template-columns: repeat(2, 1fr); }
+  .risk-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 26px; }
+  .hero::after { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-meta">最后更新 · 2026/06/02</div>
+  <div class="badge"><span class="ball"></span> FIFA WORLD CUP 2026 · 美加墨</div>
+  <h1>小红书 · 世界杯借势<br>食品类目内容 & 产品创新指南</h1>
+  <p>2026/06/11 开赛 — 7/19 决赛，整整 39 天的确定性流量窗口。这份指南帮你看清「机会在哪 → 内容怎么做 → 节奏怎么排」，照着 3 步走，把这波流量稳稳接住。</p>
+</div>
+
+<!-- ============ TABS ============ -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="t1"><span class="tb-num">1</span>机会全景</button>
+  <button class="tab-btn" data-tab="t2"><span class="tb-num">2</span>内容玩法</button>
+  <button class="tab-btn" data-tab="t3"><span class="tb-num">3</span>执行落地</button>
+</div>
+
+<!-- ===================================================================== -->
+<!-- TAB 1: 机会全景                                                         -->
+<!-- ===================================================================== -->
+<div class="tab-pane active" id="t1">
+
+  <div class="opportunity-section">
+    <h2 style="margin:0 0 4px;font-size:22px"><span class="num">📈</span>不用等开赛 · 现在动手就能吃到</h2>
+    <p class="lede">5 月底搜索量已经开始爆发，谁先发谁先占位。这一页帮你判断：流量到没到、谁在刷、哪些词值得蹭。</p>
+
+    <!-- KPI -->
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-label">「世界杯」近 7 天搜索环比</div>
+        <div class="kpi-value">大幅上涨 🔥</div>
+        <div class="kpi-sub">环比翻倍以上 · 预热期流量已爆发</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">「世界杯」单日搜索峰值</div>
+        <div class="kpi-value">本周期最高</div>
+        <div class="kpi-sub">5/28 创新高 · 持续高热中</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">食品类最热产品符号词</div>
+        <div class="kpi-value">大力神杯 🏆</div>
+        <div class="kpi-sub">辨识度最高 · 决赛前再冲一波</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">大盘流量池</div>
+        <div class="kpi-value">百万级 QV</div>
+        <div class="kpi-sub">蹭大词比做垂直词更划算</div>
+      </div>
+    </div>
+
+    <!-- 趋势图（脱敏：不显具体数字） -->
+    <div class="trend-block">
+      <div class="trend-title">📈 「世界杯」搜索日趋势 · 2026/03 — 05</div>
+      <div class="trend-chart">
+        <div class="bar" style="height:6%"  data-date="3/16" data-label="低位"></div>
+        <div class="bar" style="height:5%"  data-date="3/22" data-label="低位"></div>
+        <div class="bar" style="height:11%" data-date="3/28" data-label="缓升"></div>
+        <div class="bar" style="height:10%" data-date="3/29" data-label="缓升"></div>
+        <div class="bar" style="height:32%" data-date="4/01" data-label="抽签前后" data-event="🗓 抽签"></div>
+        <div class="bar" style="height:37%" data-date="4/04" data-label="预热小高峰"></div>
+        <div class="bar hot" style="height:66%" data-date="4/05" data-label="抽签峰值" data-event="🔥 峰值"></div>
+        <div class="bar" style="height:9%"  data-date="4/08" data-label="回落"></div>
+        <div class="bar" style="height:8%"  data-date="4/09" data-label="回落"></div>
+        <div class="bar" style="height:8%"  data-date="4/10" data-label="低位"></div>
+        <div class="bar" style="height:10%" data-date="4/14" data-label="低位"></div>
+        <div class="bar" style="height:10%" data-date="4/15" data-label="低位"></div>
+        <div class="bar" style="height:8%"  data-date="4/22" data-label="低位"></div>
+        <div class="bar" style="height:7%"  data-date="4/26" data-label="低位"></div>
+        <div class="bar" style="height:7%"  data-date="4/28" data-label="低位"></div>
+        <div class="bar" style="height:7%"  data-date="4/30" data-label="低位"></div>
+        <div class="bar" style="height:10%" data-date="5/05" data-label="缓升"></div>
+        <div class="bar" style="height:13%" data-date="5/09" data-label="开始回升"></div>
+        <div class="bar" style="height:20%" data-date="5/11" data-label="持续上涨"></div>
+        <div class="bar" style="height:59%" data-date="5/27" data-label="强烈预热" data-event="🚀 启动"></div>
+        <div class="bar peak" style="height:100%" data-date="5/28" data-label="周期峰值" data-event="🏆 峰值"></div>
+        <div class="bar hot" style="height:77%" data-date="5/29" data-label="持续高热"></div>
+        <div class="bar hot" style="height:63%" data-date="5/30" data-label="持续高热"></div>
+        <div class="bar hot" style="height:82%" data-date="5/31" data-label="持续高热" data-event="📈 高位"></div>
+      </div>
+      <div class="trend-foot">
+        <span><i class="dot dot-base"></i>常规</span>
+        <span><i class="dot dot-hot"></i>高热</span>
+        <span><i class="dot dot-peak"></i>峰值</span>
+        <span style="margin-left:auto;color:#888">单位：每日搜索热度 · hover 查看说明</span>
+      </div>
+    </div>
+
+    <!-- 6 张洞察卡 -->
+    <div class="insight-block">
+      <div class="trend-title">💡 6 条直接能用的判断 · 不用自己想</div>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="ins-icon" style="background:#fff0ec;color:#ff2442">🎯</div>
+          <h4>蹭大词，别死磕垂直词</h4>
+          <p>「世界杯」三字流量池百万级，垂直词（观赛美食/球迷套餐）几乎为 0。<b>标题用大词起手，正文/标签再叠产品词</b>。</p>
+        </div>
+        <div class="insight-card">
+          <div class="ins-icon" style="background:#fff7e6;color:#ff8c00">⏰</div>
+          <h4>5/27 起就是发车窗口</h4>
+          <p>预热期流量曲线已超过抽签日。<b>不要等开赛，6 月起就要日更</b>。</p>
+        </div>
+        <div class="insight-card">
+          <div class="ins-icon" style="background:#f0fff4;color:#00833f">🌍</div>
+          <h4>国家美食是低成本切口</h4>
+          <p>德国香肠已有沉淀热度，证明「以国佐餐」搜索习惯成立。<b>8 强出炉后 24h 内出对应国家内容</b>。</p>
+        </div>
+        <div class="insight-card">
+          <div class="ins-icon" style="background:#fff0f6;color:#d00080">🏆</div>
+          <h4>大力神杯是隐藏王牌</h4>
+          <p>当前最热的产品符号词。<b>烘焙/茶饮围绕"奖杯造型"做种草</b>，决赛前再冲一波，转化峰值在决赛日。</p>
+        </div>
+        <div class="insight-card insight-night">
+          <div class="ins-icon" style="background:rgba(255,215,0,.15);color:#FFD700">🌙</div>
+          <span class="ins-pin">⚡ 2026 独有</span>
+          <h4>北美时区＝深夜场景大爆发</h4>
+          <p>主办地美加墨，比赛多落在北京时间凌晨 0-4 点。<b>「熬夜看球」比 2022 卡塔尔届更刚需</b>——优先做功能性饮料 / 咖啡 / 黑巧 / 熬夜礼盒 / 夜宵速食。</p>
+        </div>
+        <div class="insight-card">
+          <div class="ins-icon" style="background:#f9f0ff;color:#722ed1">📉</div>
+          <h4>足球蛋糕在回调</h4>
+          <p>近 7 天阶段下滑，前期种草波峰已过。<b>烘焙商家此刻补内容正合适</b>，避开拥挤期。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关键认知反转 -->
+    <div class="persona-truth" style="margin-top:24px">
+      <div class="truth-tag">⚡ 你的内容做给谁看？两拨人同时涌过来</div>
+      <p>很多商家以为蹭世界杯=做给男球迷看，结果流量起不来。这次<b>男性 DAU 大量涌入 + 女性高粘性基本盘</b>同时存在，你面对的是<b>「男性新增 + 女性存量」的双重人群</b>——下面两张卡告诉你怎么分线打。</p>
+    </div>
+
+    <!-- 双重人群对照 -->
+    <div class="dual-audience">
+      <div class="dual-card male">
+        <div class="dual-tag">🆕 涌入新流量</div>
+        <h4>♂ 男性球迷 / 玩家</h4>
+        <p class="dual-meta">平台正在拉的增量人群</p>
+        <ul>
+          <li><b>场景</b>：硬核观赛 / 兄弟开黑 / 深夜独酌</li>
+          <li><b>偏好品类</b>：酒水、烤串、卤味、能量饮料、夜宵速食</li>
+          <li><b>内容钩子</b>：球员同款、战术梗、夺冠庆功餐、世界杯联名</li>
+          <li><b>切入话术</b>：「兄弟们」「上头」「绝杀」「续命」</li>
+        </ul>
+      </div>
+      <div class="dual-card female">
+        <div class="dual-tag">💎 高粘性存量</div>
+        <h4>♀ 23-35 都市年轻女性</h4>
+        <p class="dual-meta">5 群共性 ♀ 65-91% · 平台基本盘</p>
+        <ul>
+          <li><b>场景</b>：陪伴看球 / 闺蜜趴 / 一人食仪式感</li>
+          <li><b>偏好品类</b>：烘焙、茶饮、健康零食、精致拼盘</li>
+          <li><b>内容钩子</b>：陪男友看球配什么、闺蜜趴、看球不长胖</li>
+          <li><b>切入话术</b>：「治愈」「精致」「氛围感」「不长胖」</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 简化人群条 -->
+    <div class="persona-strip">
+      <div class="psn-chip"><b>🍰 不独美食家</b><span>♀ 84.5% · 聚会探店控</span></div>
+      <div class="psn-chip"><b>🥘 美食大玩家</b><span>♀ 91% · DIY/精致生活</span></div>
+      <div class="psn-chip"><b>⚽ 足球+美食</b><span>♀ 67.5% · 乐活族</span></div>
+      <div class="psn-chip"><b>🏃 足球装备党</b><span>♀ 65.6% · 兴趣付费</span></div>
+      <div class="psn-chip"><b>🍴 餐饮爱好者</b><span>♀ ~80% · 都市探索</span></div>
+    </div>
+
+
+    <div class="data-warn">
+      ⚠️ 数据综合自 RedBI 搜索商机宽表 + 灵犀人群市场画像 AI 解读，对外页面已脱敏（保留趋势/相对热度，不展示绝对量）。
+    </div>
+  </div>
+
+</div><!-- /tab1 -->
+
+
+<!-- ===================================================================== -->
+<!-- TAB 2: 内容玩法                                                         -->
+<!-- ===================================================================== -->
+<div class="tab-pane" id="t2">
+
+<h2 style="margin-top:8px"><span class="num">1</span>产品长什么样最容易爆？</h2>
+<p class="lede">三个视觉符号，按"最热 / 最易做 / 最持续"排好。挑你产线能上的先做，一张图就能让用户停住手指。</p>
+
+<div class="symbol-row">
+  <div class="symbol-card symbol-1">
+    <span class="sym-rank">符号 #1 · 最热</span>
+    <h3>🏆 大力神杯</h3>
+    <div class="sym-desc">辨识度最高 · 适配所有可塑形食品</div>
+    <ul>
+      <li>烘焙：奖杯蛋糕、慕斯、饼干模具</li>
+      <li>茶饮咖啡：杯身/杯套印大力神杯</li>
+      <li>零食：奖杯造型糖果、立体巧克力</li>
+    </ul>
+  </div>
+  <div class="symbol-card symbol-2">
+    <span class="sym-rank">符号 #2 · 易做</span>
+    <h3>⚽ 足球纹</h3>
+    <div class="sym-desc">黑白经典 · 成本最低</div>
+    <ul>
+      <li>足球馒头/包子（中式面点天然契合）</li>
+      <li>足球蛋糕（已有搜索热度基础）</li>
+      <li>足球饭团、足球奥利奥夹心</li>
+    </ul>
+  </div>
+  <div class="symbol-card symbol-3">
+    <span class="sym-rank">符号 #3 · 持续</span>
+    <h3>🏴 国旗 / 参赛国元素</h3>
+    <div class="sym-desc">动态更新 · 跟赛程走</div>
+    <ul>
+      <li>32 → 16 → 8 强，每轮淘汰都是二次传播机会</li>
+      <li>提前备好阿根廷/法国/巴西/英格兰/德国配色</li>
+      <li>8 强出炉后 2-3 天内必须上线对应内容</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 进阶产品创新方向 -->
+<div style="margin-top:18px">
+  <div style="font-size:14px;font-weight:700;margin-bottom:6px;color:#1a1a1a">📦 进阶玩法 · 4 种产品创新角度</div>
+  <p style="margin:0 0 12px;font-size:12.5px;color:#666;line-height:1.6">基础造型做完之后，下面 4 种是更有差异化、更能讲故事、客单价也更高的方向。每种都给了具体例子和适配品类。</p>
+</div>
+
+<div class="grid" style="grid-template-columns:repeat(2,1fr);gap:12px">
+
+  <div class="card">
+    <div class="card-icon" style="background:#fff0ec">🤝</div>
+    <span class="tag">联名 / 跨界</span>
+    <h3>「世界杯 ×」联名系列</h3>
+    <p style="font-size:12.5px;color:#444;margin-bottom:8px">借大 IP 流量，做限定包装/限定口味。乐事/可乐/五粮液已经在这条赛道——你不需要拼大牌，可以做<b>地方小品牌 × 球迷酒吧</b>这种轻联名，成本低传播好。</p>
+    <ul style="font-size:12px;color:#666">
+      <li>包装换皮：印 32 强国旗 / 球员剪影 / 加油标语</li>
+      <li>跨品类合作：和便利店 / 球迷酒吧 / 茶饮店做组合套餐</li>
+      <li>口味彩蛋：「夺冠口味」「绝杀辣度」赛事关联命名</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-icon" style="background:#fff0ec">🎁</div>
+    <span class="tag">礼盒 / 套装</span>
+    <h3>观赛场景礼盒</h3>
+    <p style="font-size:12.5px;color:#444;margin-bottom:8px">食品类最容易拉客单价的方式。把零散 SKU 打包成<b>一个看球场景的解决方案</b>，用户不是买 1 包薯片，是买"今晚看球的整套体验"。</p>
+    <ul style="font-size:12px;color:#666">
+      <li><b>观赛趴 6 人套</b>：拼盘 + 饮料 + 小料，办公室/朋友局直接下单</li>
+      <li><b>熬夜续命包</b>：咖啡 + 黑巧 + 坚果 + 泡面，深夜场刚需</li>
+      <li><b>32 强盲盒</b>：抽国家送对应风味，UGC 自传播强</li>
+      <li><b>决赛庆功盒</b>：决赛前预售，夺冠日发货，仪式感拉满</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-icon" style="background:#fff0ec">🌍</div>
+    <span class="tag">地域 / 文化</span>
+    <h3>参赛国地域风味产品</h3>
+    <p style="font-size:12.5px;color:#444;margin-bottom:8px">「德国香肠」已经有沉淀热度——证明<b>用国家给食品做注脚</b>这条路成立。8 强出炉后，对应国家的食品搜索会暴涨，提前备货的最先吃到。</p>
+    <ul style="font-size:12px;color:#666">
+      <li>🇦🇷 阿根廷烤肉 / 焦糖牛奶酱（梅西效应）</li>
+      <li>🇧🇷 巴西巴西果 / 烤肉串</li>
+      <li>🇫🇷 法国可颂 / 马卡龙 / 红酒巧克力</li>
+      <li>🇲🇽 墨西哥玉米片 / 牛油果酱（主办国）</li>
+      <li>🇯🇵 日本拉面 / 寿司（亚洲队伴生流量）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-icon" style="background:#fff0ec">🎭</div>
+    <span class="tag">情绪 / 互动</span>
+    <h3>玩梗式产品命名</h3>
+    <p style="font-size:12.5px;color:#444;margin-bottom:8px">不改产品配方，只改名字和包装文案，把<b>用户看球的真实情绪做成产品标签</b>。这种 SKU 在小红书天然出片、自带社交话题。</p>
+    <ul style="font-size:12px;color:#666">
+      <li><b>赢球 bravo 餐</b> / <b>输球消气水</b> / <b>平局加时小食</b></li>
+      <li><b>红牌警告辣条</b> / <b>VAR 慢动作糖</b> / <b>越位越甜</b></li>
+      <li><b>球王同款</b> / <b>夺冠日限定</b>（决赛后 24h 发售）</li>
+      <li>评论区设计「下单备注支持哪队」机制，强互动转发</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- 产品定价 / SKU 结构建议 -->
+<div style="background:#faf8f5;border:1px solid #ececec;border-radius:14px;padding:18px 22px;margin-top:14px">
+  <div style="font-size:14px;font-weight:700;margin-bottom:10px;color:#1a1a1a">💰 SKU 结构建议 · 三个价位铺满</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:12.5px">
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border-top:3px solid #ff2442">
+      <div style="font-weight:700;color:#1a1a1a;margin-bottom:4px">🪙 引流款 · 9-29 元</div>
+      <div style="color:#666;line-height:1.55">单品造型款（足球馒头/奖杯饼干）— 拉笔记/拉评论，不指望赚钱，是流量入口</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border-top:3px solid #ff2442">
+      <div style="font-weight:700;color:#1a1a1a;margin-bottom:4px">🛒 利润款 · 49-99 元</div>
+      <div style="color:#666;line-height:1.55">观赛拼盘 / 双人份套餐 — 主推转化，靠节日氛围溢价，毛利最高</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:12px 14px;border-top:3px solid #ff2442">
+      <div style="font-weight:700;color:#1a1a1a;margin-bottom:4px">🎁 礼赠款 · 199 元 +</div>
+      <div style="color:#666;line-height:1.55">决赛庆功礼盒 / 32 强盲盒 — 送礼/收藏/晒图场景，客单冲量决赛周</div>
+    </div>
+  </div>
+</div>
+
+<!-- 国家色系 -->
+<h2><span class="num">2</span>赛程没素材怎么办？这张表帮你排片</h2>
+<p class="lede">每个国家都给好了配色 + 风味方向，跟着比赛日历发——一场比赛一篇内容，三周不愁素材。下方先列<b>9 个高热门国家</b>，赛程出炉后建议扩展到全 32 强。</p>
+<div class="flag-row">
+  <div class="flag" style="background:linear-gradient(180deg,#009C3B 50%,#FFDF00 50%);color:#000;text-shadow:0 1px 2px rgba(255,255,255,.5)">🇧🇷 巴西<span>巴西果 / 百香果黄绿系</span></div>
+  <div class="flag" style="background:linear-gradient(90deg,#0038A8 33%,#FFFFFF 33% 66%,#CE1126 66%);color:#000;text-shadow:0 1px 2px rgba(255,255,255,.5)">🇫🇷 法国<span>蓝莓酸奶 + 草莓塔</span></div>
+  <div class="flag" style="background:linear-gradient(180deg,#75AADB 33%,#FFFFFF 33% 66%,#75AADB 66%);color:#000">🇦🇷 阿根廷<span>蓝白马卡龙 / 焦糖牛奶酱</span></div>
+  <div class="flag" style="background:linear-gradient(180deg,#000 33%,#DD0000 33% 66%,#FFCE00 66%)">🇩🇪 德国<span>黑啤 + 香肠 + 椒盐结</span></div>
+  <div class="flag" style="background:linear-gradient(180deg,#008C45 33%,#FFFFFF 33% 66%,#CD212A 66%);color:#000">🇮🇹 意大利<span>三色冰激凌、卡布沙拉</span></div>
+  <div class="flag" style="background:#C8102E">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰<span>红白圣乔治司康茶歇</span></div>
+  <div class="flag" style="background:linear-gradient(180deg,#AA151B 33%,#F1BF00 33% 66%,#AA151B 66%);color:#000">🇪🇸 西班牙<span>橘子 + 伊比利亚火腿</span></div>
+  <div class="flag" style="background:linear-gradient(90deg,#046A38 33%,#FFFFFF 33% 66%,#CE1126 66%);color:#000">🇲🇽 墨西哥<span>牛油果 / 玉米卷</span></div>
+  <div class="flag" style="background:linear-gradient(180deg,#DA291C 50%,#FFFFFF 50%);color:#000">🇯🇵 日本<span>红白年糕 / 抹茶</span></div>
+</div>
+
+<!-- 6 玩法 -->
+<h2><span class="num">3</span>内容怎么讲才有人看？六种打法</h2>
+<p class="lede">从最稳的"场景种草"到最爆的"追赛果"，按你的精力和品类挑 1-2 种组合用就行。每种都标了适合谁、什么时候发。</p>
+
+<div class="play-grid">
+  <div class="play-card">
+    <div class="play-no">01</div>
+    <span class="play-tag tag-stable">最稳 · 高转化</span>
+    <h3>📍 场景种草</h3>
+    <div class="play-meta">执行门槛低 · 内容框架固定</div>
+    <ul>
+      <li>「今晚 XX vs XX，在家怎么吃」→ 提前赛程多版本</li>
+      <li>「陪男朋友看球，我偷偷准备了这些」→ 恋爱场景</li>
+      <li>「闺蜜看球趴吃什么」→ 聚会场景，多品类植入</li>
+      <li>「一个人看球也要吃得仪式感」→ 独居高热</li>
+    </ul>
+  </div>
+
+  <div class="play-card">
+    <div class="play-no">02</div>
+    <span class="play-tag tag-diy">高收藏 · 适合烘焙</span>
+    <h3>👩‍🍳 DIY 教程</h3>
+    <div class="play-meta">收藏率是点赞的 2-3 倍</div>
+    <ul>
+      <li>「30 分钟做出足球蛋糕」</li>
+      <li>「世界杯国旗饭团」</li>
+      <li>「大力神杯慕斯」</li>
+      <li>关键：可复制、不能太难，让普通人觉得自己也能做</li>
+    </ul>
+  </div>
+
+  <div class="play-card">
+    <div class="play-no">03</div>
+    <span class="play-tag tag-hot">高流量 · 需快速反应</span>
+    <h3>🔥 追赛程热点</h3>
+    <div class="play-meta">8 强 / 决赛是两个最大爆发点</div>
+    <ul>
+      <li>赛后立刻发「为 X 国加油」「X 惨了，吃他们美食安慰一下」</li>
+      <li>赛前 2h 预热发布，赛后 1h 跟进</li>
+      <li>提前做好各国美食版本素材，等赛果出来快速匹配</li>
+    </ul>
+  </div>
+
+  <div class="play-card">
+    <div class="play-no">04</div>
+    <span class="play-tag tag-night">2026 独有 · 竞争少</span>
+    <h3>🌙 深夜场专属</h3>
+    <div class="play-meta">咖啡 / 茶饮 / 能量棒 / 坚果</div>
+    <ul>
+      <li>「凌晨 2 点还在看球，这几样救了我」</li>
+      <li>「世界杯夜场续命食品排行榜」</li>
+      <li>发布时间：比赛前 2-3h（约 21-22 点）</li>
+    </ul>
+  </div>
+
+  <div class="play-card">
+    <div class="play-no">05</div>
+    <span class="play-tag tag-health">命中高 TGI 人群</span>
+    <h3>🥗 健康 + 观赛</h3>
+    <div class="play-meta">画像同时搜「减脂」+「美食探店」</div>
+    <ul>
+      <li>「看球不长胖的零食推荐（附热量表）」</li>
+      <li>「世界杯健康观赛食单」</li>
+      <li>「熬夜看球但不吃垃圾食品」</li>
+      <li>竞争烈度低，但精准击中画像用户</li>
+    </ul>
+  </div>
+
+  <div class="play-card">
+    <div class="play-no">06</div>
+    <span class="play-tag tag-emo">高传播 · 评论区爆</span>
+    <h3>💬 情绪 / 社交货币</h3>
+    <div class="play-meta">互动型内容，UGC 转化强</div>
+    <ul>
+      <li>「支持哪个队配哪款零食」→ 测试/互动类</li>
+      <li>「世界杯美食支持架」→ 食品 + 加油应援</li>
+      <li>「32 强票圈打卡餐」→ 每场出对应国食物</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Toolkit -->
+<h2><span class="num">4</span>笔记怎么发？四样东西照着抄</h2>
+<p class="lede">标题模板直接套、封面四要素照着排、话题标签按公式带、小技巧多吃流量——发完一篇笔记需要的全在这里。</p>
+
+<!-- 关键词机会榜（迁移自 Tab1） -->
+<div class="trend-block" style="background:#faf8f5;border-radius:14px;padding:18px 22px;margin-bottom:14px">
+  <div style="font-size:14px;font-weight:700;margin-bottom:6px;color:#1a1a1a">🎯 标题里该带哪些词？关键词机会榜</div>
+  <p style="margin:0 0 12px;font-size:12px;color:#888;line-height:1.6">"高优先级"的词用户已经在搜，标题里至少带 1 个；"赛事激活型"的词现在没流量但开赛会爆，提前埋等于占座。</p>
+  <table class="kw-table">
+    <thead>
+      <tr>
+        <th>词类</th><th>关键词</th><th>当前热度</th><th>近 7 天趋势</th><th>商家机会</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="kw-cat cat1">核心</span></td><td><b>世界杯</b></td><td>极高 ★★★★★</td><td class="up">大幅上涨 🔥</td><td><span class="lvl lvl-h">🔴 高优先级</span></td></tr>
+      <tr><td><span class="kw-cat cat2">产品</span></td><td>大力神杯</td><td>较高 ★★★★</td><td class="flat">平稳 →</td><td><span class="lvl lvl-m">🟠 中优先级</span></td></tr>
+      <tr><td><span class="kw-cat cat2">产品</span></td><td>足球蛋糕</td><td>中 ★★★</td><td class="down">阶段回落 ⬇</td><td><span class="lvl lvl-l">🟢 烘焙类首选</span></td></tr>
+      <tr><td><span class="kw-cat cat3">国家</span></td><td>德国香肠</td><td>有基础 ★★</td><td class="down">略降 ↓</td><td><span class="lvl lvl-l">🟢 肉制品布局</span></td></tr>
+      <tr><td colspan="5" class="kw-divider">⬇️ 以下词当前搜索量极低，属「赛事激活型」——开赛后会快速爆发，要提前埋点</td></tr>
+      <tr class="dim"><td><span class="kw-cat cat1">核心</span></td><td>世界杯美食 / 观赛美食 / 球迷美食 / 看球小食 / 熬夜看球美食</td><td>—</td><td>赛事激活型</td><td><span class="lvl lvl-w">🟡 待观察</span></td></tr>
+      <tr class="dim"><td><span class="kw-cat cat2">产品</span></td><td>足球馒头 / 世界杯蛋糕 / 国旗蛋糕 / 32强甜品</td><td>—</td><td>赛事激活型</td><td><span class="lvl lvl-w">🟡 待观察</span></td></tr>
+      <tr class="dim"><td><span class="kw-cat cat4">场景</span></td><td>观赛趴 / 看球聚餐 / 球迷套餐 / 世界杯下午茶</td><td>—</td><td>赛事激活型</td><td><span class="lvl lvl-w">🟡 待观察</span></td></tr>
+      <tr class="dim"><td><span class="kw-cat cat3">国家</span></td><td>阿根廷美食 / 巴西美食 / 法国甜品</td><td>—</td><td>赛事激活型</td><td><span class="lvl lvl-w">🟡 待观察</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="toolkit">
+  <div class="tk-left">
+    <div class="tk-card">
+      <h4>📝 标题模板（点击复制）</h4>
+      <p class="tk-sub">强钩子开头，5-8 字命中情绪</p>
+      <code class="copyable">【世界杯限定】我把 大力神杯 做成了能吃的‼️</code>
+      <code class="copyable">开赛倒计时 N 天｜32 强国旗 品类 打卡 Day X</code>
+      <code class="copyable">赌一包辣条，这道 产品 今晚要爆</code>
+      <code class="copyable">看球必备｜店名 的"绝杀套餐"上线 X 元拿下</code>
+      <code class="copyable">不是吧，连 产品 都能蹭世界杯？姐妹们笑死</code>
+      <code class="copyable">给 爸爸/男友 做了一桌应援餐，他破防了</code>
+    </div>
+
+    <div class="tk-card">
+      <h4>🎨 封面四要素（小红书首图法则）</h4>
+      <p class="tk-sub">把这四样东西摆好，封面就不会丑</p>
+      <div class="cover-list">
+        <div class="cover-step">
+          <div class="cs-no" style="background:#ff2442;color:#fff">1</div>
+          <div class="cs-body">
+            <b>标题压顶</b>（左上 5-8 字大字）
+            <span>"世界杯限定" / "今晚必吃" / "0 元抽" — 用强情绪词钩住人</span>
+          </div>
+        </div>
+        <div class="cover-step">
+          <div class="cs-no" style="background:#00833f;color:#fff">2</div>
+          <div class="cs-body">
+            <b>主体居中</b>（产品占画面 60%）
+            <span>产品旁加一个球元素或国旗色块，世界杯氛围立刻拉满</span>
+          </div>
+        </div>
+        <div class="cover-step">
+          <div class="cs-no" style="background:#fff;color:#1a1a1a;border:1px solid #ddd">3</div>
+          <div class="cs-body">
+            <b>店铺信息</b>（右下小字角标）
+            <span>店名 / 价格 / 赛时——用户一眼看到在哪买、多少钱</span>
+          </div>
+        </div>
+        <div class="cover-step">
+          <div class="cs-no" style="background:#1a1a1a;color:#FFD700">4</div>
+          <div class="cs-body">
+            <b>暖色滤镜</b>（橘红 / 绿茵绿）
+            <span>世界杯氛围色，比冷蓝灰滤镜点击率高，是平台审美</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tk-right">
+    <div class="tk-card">
+      <h4>🏷 话题标签矩阵</h4>
+      <p class="tk-sub">公式：<b>1 大热 + 2 中尾 + 1-2 品类</b></p>
+
+      <div class="tag-group">
+        <div class="tag-label">官方话题（强烈建议带 1 个）</div>
+        <div class="tags-cloud">
+          <span class="tg-hot">#球迷备战餐</span>
+          <span class="tg-hot">#无时差观赛地图</span>
+          <span class="tg-hot">#世界杯世界胃</span>
+          <span class="tg-hot">#美食应援</span>
+        </div>
+      </div>
+
+      <div class="tag-group">
+        <div class="tag-label">大热词 / 中尾词</div>
+        <div class="tags-cloud">
+          <span>#世界杯</span>
+          <span>#世界杯联名</span>
+          <span>#球迷必备</span>
+          <span>#熬夜看球</span>
+          <span>#32强打卡</span>
+          <span>#国旗甜品</span>
+        </div>
+      </div>
+
+      <div class="tag-group">
+        <div class="tag-label">品类 / 场景词</div>
+        <div class="tags-cloud">
+          <span>#美食创意</span>
+          <span>#家庭聚餐</span>
+          <span>#办公室下午茶</span>
+          <span>#夜宵</span>
+          <span>#夏日饮品</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tk-card tk-tips">
+      <h4>💡 小技巧 · 让笔记多吃一波流量</h4>
+      <p class="tk-sub">这些不是必做，但做了数据会更好看</p>
+      <ul class="tips-list">
+        <li><b>正文埋时间锚点</b><span>"今晚 X 点比赛"——绑定具体场次，搜索匹配更精准</span></li>
+        <li><b>发布卡比赛前 2-3 小时</b><span>用户正好在备战看球，决策窗口最短</span></li>
+        <li><b>评论区预埋互动话术</b><span>"你支持哪队？" / "猜比分" — 提评论率拉算法权重</span></li>
+        <li><b>挂商品卡 + 店铺定位</b><span>把流量直接接到转化链路，别只赚曝光</span></li>
+        <li><b>赛后回收 UGC 做合集</b><span>用户拍的照片合成「这周谁拍得最好看」，长尾再吃 1 周</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;margin:32px 0 8px;font-size:13px;color:#888">
+  知道做什么内容了？→ 去 <b style="color:#ff2442">Tab 3「执行落地」</b>把它落到日历上
+</div>
+
+</div><!-- /tab2 -->
+
+
+<!-- ===================================================================== -->
+<!-- TAB 3: 执行落地                                                         -->
+<!-- ===================================================================== -->
+<div class="tab-pane" id="t3">
+
+  <!-- 时间轴 -->
+  <div class="timeline-section">
+    <h2 style="margin-top:0"><span class="num">⏱</span>39 天怎么排？这张表帮你定节奏</h2>
+    <p class="lede">不是一次发完，是按赛程铺。每个阶段对应一种内容重心，照着分波——心里有底，不会发到一半没素材。</p>
+
+    <div class="timeline-rail">
+      <div class="tl-stages">
+        <div class="tl-stage tl-c1">
+          <h4>🔥 预热期</h4>
+          <span class="tl-date">06/02 — 06/10</span>
+          <div class="tl-body">
+            <strong>悬念 + 限定预告</strong>
+            <ul>
+              <li>"开赛倒计时 X 天"</li>
+              <li>产品造型剧透</li>
+              <li>每日 1 篇</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-stage tl-c2">
+          <h4>⚽ 小组赛</h4>
+          <span class="tl-date">06/11 — 06/27</span>
+          <div class="tl-body">
+            <strong>32 强国旗 / 风味打卡</strong>
+            <ul>
+              <li>每场对应 1 篇</li>
+              <li>国家色系内容主轴</li>
+              <li>开幕日直播首爆</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-stage tl-c3">
+          <h4>🥊 淘汰赛</h4>
+          <span class="tl-date">06/28 — 07/11</span>
+          <div class="tl-body">
+            <strong>玩法切换 + 转化高峰</strong>
+            <ul>
+              <li>竞猜 / 盲盒上线</li>
+              <li>"猜对比分送同款"</li>
+              <li>套餐 GMV 拉满</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-stage tl-c4">
+          <h4>🏆 决赛周</h4>
+          <span class="tl-date">07/14 — 07/19</span>
+          <div class="tl-body">
+            <strong>大力神杯 + 决赛限定</strong>
+            <ul>
+              <li>奖杯造型甜品</li>
+              <li>决赛日直播切片</li>
+              <li>夺冠返现机制</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-stage tl-c5">
+          <h4>📦 长尾</h4>
+          <span class="tl-date">07/20+</span>
+          <div class="tl-body">
+            <strong>UGC 收口</strong>
+            <ul>
+              <li>夺冠返现履约</li>
+              <li>用户笔记合集</li>
+              <li>转复购</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-meta">
+      <span>🎯 总周期 <b>39 天</b> 比赛 + 1 周长尾</span>
+      <span>📈 高峰节点：开幕日 / 8 强首日 / 决赛日</span>
+      <span>📝 建议总笔记量 <b>40 — 60 篇</b></span>
+    </div>
+  </div>
+
+  <!-- 本周行动清单 -->
+  <div class="action-week">
+    <div class="aw-header">
+      <span class="aw-tag">📅 本周（6/2 — 6/8）</span>
+      <h3>你要完成的 4 件事</h3>
+      <p>开赛前最后一周，按这个清单走，开赛日就能稳稳上线第一波内容。</p>
+    </div>
+    <div class="aw-grid">
+      <div class="aw-step">
+        <div class="aw-no">1</div>
+        <div class="aw-body">
+          <b>选定 1 个产品造型，2-3 天打样</b>
+          <span>从大力神杯 / 足球纹 / 国旗三选一，挑你产线 3 天内能跑出来的。别贪多，一个就够。</span>
+        </div>
+      </div>
+      <div class="aw-step">
+        <div class="aw-no">2</div>
+        <div class="aw-body">
+          <b>备好 5 篇预热笔记初稿</b>
+          <span>用 Tab 2 的标题模板套，配封面四要素拍图。开赛前 3 天每天发 1 篇，节奏稳。</span>
+        </div>
+      </div>
+      <div class="aw-step">
+        <div class="aw-no">3</div>
+        <div class="aw-body">
+          <b>挂上官方话题至少 1 个</b>
+          <span>#球迷备战餐 / #无时差观赛地图 / #世界杯世界胃 / #美食应援，挑场景最匹配的，蹭流量扶持。</span>
+        </div>
+      </div>
+      <div class="aw-step">
+        <div class="aw-no">4</div>
+        <div class="aw-body">
+          <b>定一个 SKU 矩阵：引流款 + 利润款</b>
+          <span>9-29 元造型款做笔记钩子，49-99 元套餐做转化主力——商品卡先挂上，流量来了别接不住。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 品类机会优先级表 -->
+  <h2><span class="num">📊</span>你的品类该投多少精力？对照这张表</h2>
+  <p class="lede">8 个食品品类按"机会大小"排好。你做的是哪个品类？是该 All in，还是搭个顺风车就行？看一眼就知道，别把精力花错地方。</p>
+
+  <table class="cat-table">
+    <thead>
+      <tr>
+        <th style="width:90px">优先级</th>
+        <th style="width:140px">品类</th>
+        <th>核心机会</th>
+        <th style="width:160px">最佳节点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="cat-prio cp-h">🔴 最高</span></td>
+        <td><b>烘焙甜品</b></td>
+        <td>足球 / 大力神杯造型，视觉性最强，天然适合种草</td>
+        <td>现在开始备货</td>
+      </tr>
+      <tr>
+        <td><span class="cat-prio cp-h">🔴 最高</span></td>
+        <td><b>茶饮咖啡</b></td>
+        <td>「深夜看球」场景 + 限定包装，2026 时区最大赢家</td>
+        <td>开赛前上限定款</td>
+      </tr>
+      <tr>
+        <td><span class="cat-prio cp-m">🟠 高</span></td>
+        <td><b>零食小吃</b></td>
+        <td>「观赛趴」零食拼盘、礼盒，聚会场景天然植入</td>
+        <td>开赛前 1-2 周</td>
+      </tr>
+      <tr>
+        <td><span class="cat-prio cp-m">🟠 高</span></td>
+        <td><b>肉制品 / 香肠</b></td>
+        <td>德国香肠已有沉淀热度，世界杯期间翻倍可期</td>
+        <td>现在布局</td>
+      </tr>
+      <tr>
+        <td><span class="cat-prio cp-l">🟡 中</span></td>
+        <td><b>中式面点</b></td>
+        <td>足球馒头/包子差异化，竞争少，DIY 内容潜力大</td>
+        <td>开赛后跟进</td>
+      </tr>
+      <tr>
+        <td><span class="cat-prio cp-l">🟡 中</span></td>
+        <td><b>酒水饮料</b></td>
+        <td>观赛聚餐场景，但平台对酒类内容限制多</td>
+        <td>需评估合规</td>
+      </tr>
+      <tr>
+        <td><span class="cat-prio cp-l">🟡 中</span></td>
+        <td><b>火锅烧烤</b></td>
+        <td>聚会场景强，但内容难做差异化</td>
+        <td>赛事期</td>
+      </tr>
+      <tr>
+        <td><span class="cat-prio cp-x">🟢 补充</span></td>
+        <td><b>外卖套餐</b></td>
+        <td>「世界杯观赛套餐」概念，转化链路短</td>
+        <td>开赛后</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 激励专区 -->
+  <div class="incentive">
+    <div class="inc-header">
+      <div>
+        <div class="inc-badge">🎁 免费流量 · 不用就亏</div>
+        <h2 style="margin:8px 0 6px;color:#fff;font-size:22px">带话题发笔记 · 蹭平台扶持流量池</h2>
+        <p style="margin:0;color:rgba(255,255,255,.85);font-size:13px">4 大官方话题覆盖观赛全场景 · 笔记里加 1 个话题，零成本拿流量加分</p>
+      </div>
+      <div class="inc-cta-wrap">
+        <a class="inc-cta-main" href="https://www.xiaohongshu.com/explore" target="_blank">📝 一键发笔记</a>
+      </div>
+    </div>
+
+    <div class="inc-grid">
+      <a class="inc-card" href="https://www.xiaohongshu.com/search_result?keyword=%E7%90%83%E8%BF%B7%E5%A4%87%E6%88%98%E9%A4%90&type=51" target="_blank">
+        <div class="inc-tag">#球迷备战餐</div>
+        <div class="inc-scene">赛前囤货 · 备餐场景</div>
+        <ul>
+          <li><b>约稿</b>：球迷食物军火库 — 0 负担 / 自救餐 / 漂亮饭 / 快手菜</li>
+          <li><b>UGC</b>：连更打卡 ·「熬夜圣体」周评 · 送清肝明目大礼包</li>
+        </ul>
+        <span class="inc-go">带话题去发笔记 →</span>
+      </a>
+
+      <a class="inc-card" href="https://www.xiaohongshu.com/search_result?keyword=%E6%97%A0%E6%97%B6%E5%B7%AE%E8%A7%82%E8%B5%9B%E5%9C%B0%E5%9B%BE&type=51" target="_blank">
+        <div class="inc-tag">#无时差观赛地图</div>
+        <div class="inc-scene">深夜场景 · 探店点位</div>
+        <ul>
+          <li><b>三类点位</b>：分贝自由酒吧 / 大排挡 24h 食堂 / 赛后早餐店</li>
+          <li><b>范式</b>：美食致谢（世界杯观赛版）· 每周更新点位清单</li>
+          <li><b>奖励</b>：观赛友好门店酒水折扣</li>
+        </ul>
+        <span class="inc-go">带话题去发笔记 →</span>
+      </a>
+
+      <a class="inc-card" href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%96%E7%95%8C%E6%9D%AF%E4%B8%96%E7%95%8C%E8%83%83&type=51" target="_blank">
+        <div class="inc-tag">#世界杯世界胃</div>
+        <div class="inc-scene">小组赛 · 跟着赛程吃全球</div>
+        <ul>
+          <li><b>高点</b>：栏目「跟着赛程吃全球」· 进球即发图，即时热点响应</li>
+          <li><b>UGC</b>：世界美食跟学试菜</li>
+        </ul>
+        <span class="inc-go">带话题去发笔记 →</span>
+      </a>
+
+      <a class="inc-card" href="https://www.xiaohongshu.com/search_result?keyword=%E7%BE%8E%E9%A3%9F%E5%BA%94%E6%8F%B4&type=51" target="_blank">
+        <div class="inc-tag">#美食应援</div>
+        <div class="inc-scene">决赛周 · 玩梗高峰</div>
+        <ul>
+          <li><b>高点</b>：栏目「球迷饭局」· 高点作者 + 资深球迷</li>
+          <li><b>UGC</b>：球王同款餐 / 输球消气水 / 赢球 bravo 餐</li>
+        </ul>
+        <span class="inc-go">带话题去发笔记 →</span>
+      </a>
+    </div>
+
+    <div class="inc-tip">
+      💡 <b>怎么蹭最划算</b>：商家笔记建议带 1 个官方话题 + 1-2 个长尾词。例：<code>#球迷备战餐 #世界杯美食 #足球馒头</code>，命中流量池后再叠加产品/品类词。
+    </div>
+  </div>
+
+  <!-- 版权风险 -->
+  <div class="risk-box">
+    <div class="risk-title">⚠️ 发布前最后看一眼：别踩版权的坑</div>
+    <p style="margin:0 0 12px;font-size:13px;color:#444;line-height:1.6">
+      <b>FIFA 官方 Logo、吉祥物、「World Cup」英文商标</b>都有授权限制，直接用包装/商品名上有侵权风险——花钱做了内容反被下架就亏大了。下面这两栏对照着看，<b>「不要」的坑别踩，「可以」的方式放心用</b>：
+    </p>
+    <div class="risk-grid">
+      <div class="risk-item">
+        <p><span class="risk-cross">❌ 不要</span></p>
+        <p>· 在产品包装/名称上直接使用 FIFA Logo 或吉祥物</p>
+        <p>· 把"World Cup""FIFA"作为商品名核心词</p>
+        <p>· 引用官方比赛画面 / 队徽未经授权使用</p>
+      </div>
+      <div class="risk-item">
+        <p><span class="risk-check">✅ 可以</span></p>
+        <p>· 标题用<b>「足球美食 / 观赛美食」</b>替代「世界杯美食」</p>
+        <p>· 产品描述用<b>「足球主题 / 夏日赛事」</b>规避</p>
+        <p>· 笔记话题挂 #世界杯（用户话题，安全）</p>
+        <p>· 自创设计的足球纹 / 国旗色系不涉权</p>
+      </div>
+    </div>
+  </div>
+
+
+</div><!-- /tab3 -->
+
+<!-- 统一页脚 -->
+<div class="page-footer">
+  <div class="footer-title">📖 关于这份指南</div>
+  <p class="footer-text">
+    本指南由小红书行业团队整理，结合平台搜索趋势与人群洞察，<br>
+    为食品类目商家提供 2026 世界杯期间的内容创作与产品创新参考。<br>
+    数据观点仅供方向性参考，具体执行请结合自身品牌情况。
+  </p>
+  <div class="footer-cta">
+    🚀 准备好了吗？<a href="https://www.xiaohongshu.com/explore" target="_blank">立即去发布你的世界杯笔记 →</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === id));
+    // 滚动到 tab 栏位置而非顶部，保留 Hero 视觉连续性
+    const tabs = document.querySelector('.tabs');
+    if (tabs) {
+      const top = tabs.getBoundingClientRect().top + window.scrollY - 12;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// 文案一键复制
+document.querySelectorAll('code.copyable').forEach(el => {
+  el.addEventListener('click', () => {
+    const text = el.dataset.copy || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const original = el.dataset.original || el.innerHTML;
+      if (!el.dataset.original) el.dataset.original = original;
+      el.classList.add('copied');
+      el.innerHTML = '✓ 已复制到剪贴板';
+      setTimeout(() => {
+        el.classList.remove('copied');
+        el.innerHTML = el.dataset.original;
+      }, 1400);
+    }).catch(() => {
+      el.innerHTML = '复制失败，请手动选择';
+      setTimeout(() => { el.innerHTML = el.dataset.original; }, 1400);
+    });
+  });
+});
+</script>
+</body>
+</html>
